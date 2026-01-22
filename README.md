@@ -116,217 +116,823 @@ var temp_d = 12;
 <div>
 <h3>Example 1:</h3>
 <p>console.log(nm);</p>
-←→
-<p>let nm = "name"; </p>
+<p>let nm = "name";</p>
 <p>Answer or Error:Error </p>
-<p>Why: we print console before initialization & use let keyword for decalare variable </p>
+<p>Why:we print console before intilization & use let keyword for declare variable .</p>
 </div>
-
-
 <div>
 <h3>Example 2:</h3>
 <p>console.log(b);</p>
 <p>var b= "username"; </p>
-<p>Answer or Error:Answer(Undefined) </p>
-<p>Why: we print console before initialization & use var keyword for decalare variable  </p>
+<p>Answer or Error:Answer(undefinded)</p>
+<p>Why:When we print console before intilization & use var keyword for declare variable .</p>
 </div>
 
 <div>
 <h3>Example 3:</h3>
-<p>var x = 1;</p>
+<p>var x = 1 </p>
 <p>{
-var x= 2;
+var x = 2
 }
 </p>
-<p>console.log(x);</p>
-<p>Answer or Error:Answer(2) </p>
-<p>Why: var keyword used so declared block scope </p>
+<p>consol.log(x) ;</p>
+<p>Answer or Error:Answer(2)</p>
+<p>Why:When we use var than in console print block scope.</p>
 </div>
 
-<div>
 <h3>Example 4:</h3>
-<p>let a = 10; </p>
+<p>let a 10; </p>
 <p>{
 let a = 20;
-console.log("Inside:", a);
-}</p>
-<p>
+console.log("Inside:", a);</p>
+}<p>
 console.log("Outside:", a);
 </p>
-<p>Answer or Error:Answer(inside:20 , outside:10) </p>
-<p>Why: first print block scope and after print globel scope </p>
+<p>Answer or Error:Answer(Inside: 20  Outside: 10) </p>
+<p>Why:In console first print block scope after print global scope. </p>
 </div>
 
-<div>
-<h3>Example 5 :</h3>
+<h3>Example 5:</h3>
 <p>const person = {name: "demo"}; </p>
 on console.log
 <p>person.name= "user"; </p>
 <p>person = {}; X </p>
-<p>Answer or Error:error </p>
-<p>Why:enter the object than changes the value and without the add object otherwise not change the value.</p>
+<p>Answer or Error:Error </p>
+<p>Why:eneter the object than change the value and without the add object otherwise not change the value.</p>
 </div>
 
 <h1>JavaScript Data Types</h1>
 
-  <h2>1. Primitive Data Types</h2>
-    <p>Primitive data types</p>
+<p>JavaScript ma mainly <b>2 types na data types</b> hoy chhe:</p>
 
-  <h3>Example:</h3>
-    <pre>
+<ul>
+  <li><b>Primitive Data Types</b></li>
+  <li><b>Non-Primitive (Reference) Data Types</b></li>
+</ul>
+
+<hr>
+
+<h2>1. Primitive Data Types</h2>
+
+<p>
+Primitive data types ma <b>actual value copy</b> thay chhe.
+Ek variable change karva thi bijo variable effect thato nathi.
+</p>
+
+<pre><code>
 let a = 12;
-let b = a; // a --> 12
+let b = a;   // copy value
 a = a + 3;
-    </pre>
+</code></pre>
 
-  <p><strong>Types:</strong> string, number, boolean, null, undefined, symbol, bigint</p>
+<h3>Primitive Data Types List</h3>
 
-  <h3>String</h3>
-    <pre>
+<ul>
+  <li>String</li>
+  <li>Number</li>
+  <li>Boolean</li>
+  <li>Null</li>
+  <li>Undefined</li>
+  <li>Symbol</li>
+  <li>BigInt</li>
+</ul>
+
+<h3>String</h3>
+
+<p>String 3 rite lakhay chhe:</p>
+
+<pre><code>
 let d = "name";
 d = 'username';
 d = `firstname`;
-    </pre>
+</code></pre>
 
-  <h3>Number</h3>
-    <pre>
+<h3>Number</h3>
+
+<pre><code>
 let e = 12;
 e = 12.25;
-    </pre>
+</code></pre>
 
-  <h3>Boolean</h3>
-    <pre>
+<h3>Boolean</h3>
+
+<pre><code>
 let f = true;
 f = false;
-    </pre>
+</code></pre>
 
-  <h3>Null & Undefined</h3>
-    <pre>
+<h3>Null</h3>
+
+<p>Null ma value manually aapvi pade chhe.</p>
+
+<pre><code>
 let g = null;
-let h; // undefined
-    </pre>
+</code></pre>
 
-  <h3>Symbol</h3>
-    <pre>
+<h3>Undefined</h3>
+
+<p>Undefined default value hoy chhe, value assign na kari hoy.</p>
+
+<pre><code>
+let h;
+</code></pre>
+
+<h3>Symbol</h3>
+
+<p>Symbol unique ane immutable value hoy chhe.</p>
+
+<pre><code>
 let u1 = Symbol("uid");
 let u2 = Symbol("uid");
+// u1 === u2 -> false
 
 let obj = { uid: 1, name: "test", email: "test@test.com" };
 let u3 = Symbol("uid");
-obj[u3] = "001";
-    </pre>
+obj[u3] = "101";
+</code></pre>
 
-  <h3>BigInt</h3>
-    <pre>
+<h3>BigInt</h3>
+
+<p>BigInt large numbers handle karva mate use thay chhe.</p>
+
+<pre><code>
 let number = 9007199254740991;
 number = number + 6;
 
 let num2 = 900719925470991n;
 num2 + 3n;
-    </pre>
+</code></pre>
 
-  <hr>
+<hr>
 
-  <h2>2. Non-Primitive (Reference) Data Types</h2>
-    <p>Reference data types</p>
+<h2>2. Non-Primitive (Reference) Data Types</h2>
 
-  <h3>Array</h3>
-    <pre>
+<p>
+Non-primitive data types ma <b>reference copy</b> thay chhe.
+Ek variable change karva thi bijo variable par pan effect pade chhe.
+</p>
+
+<pre><code>
 let temp_a = [1, 2, 3];
 let temp_b = temp_a;
-temp_b.pop();
-    </pre>
+temp_b.pop(); // original array pan change thase
+</code></pre>
 
-  <h3>Object</h3>
-    <pre>
+<h3>Non-Primitive Types List</h3>
+
+<ul>
+  <li>Array</li>
+  <li>Object</li>
+  <li>Function</li>
+</ul>
+
+<h3>Array</h3>
+
+<pre><code>
+let temp_array = ["name", "age", "phone_number"];
+</code></pre>
+
+<h3>Object</h3>
+
+<pre><code>
 let obj1 = {
-    name: "test",
-    age: 9,
-    mobile_no: 123456789
+  name: "test",
+  age: 9,
+  phone_number: 558998554
 };
-    </pre>
+</code></pre>
 
-  <h3>Function</h3>
-    <pre>
+<h3>Function</h3>
+
+<pre><code>
 function name(params) {
-    // function body
+  // function body
 }
-    </pre>
+</code></pre>
 
-<p><em>JavaScript is dynamically typed language.</em></p>
+<hr>
+<h2>Dynamic Typing in JavaScript</h2>
 
-  <h2>Dynamic Typing Example</h2>
-    <pre>
-let temp_d = "name";
-temp_d = 123;
-temp_d = {};
-    </pre>
+<p>
+JavaScript <b>dynamically typed language</b> chhe.
+Etle ek variable alag-alag type ni value hold kari shake chhe.
+</p>
 
-  <p>
-        In the above example, the variable <code>temp_d</code>  
-        is first a string, then a number, and finally an object.
-    </p>
+<pre><code>
+let temp_d = "name";   // string
+temp_d = 123;         // number
+temp_d = {};          // object
+</code></pre>
 
-  <hr>
+<p>
+Aa reason thi JavaScript flexible chhe, pan large projects mate
+<b>TypeScript</b> use karvama aave chhe.
+</p>
 
-  <h1>JavaScript vs TypeScript</h1>
-    <p>
-        JavaScript allows dynamic typing,  
-        while <strong>TypeScript supports static typing</strong>.
-    </p>
+<pre><code>
+// JavaScript --> TypeScript
+</code></pre>
 
-  <hr>
+<hr>
 
-  <h1>typeof Operator Quirks</h1>
-    <p>
-        The <code>typeof</code> operator is used to check the data type of a variable.
-    </p>
+<h2>typeof Operator</h2>
 
-  <h2>Examples</h2>
-    <pre>
-typeof 12
-typeof NaN
-typeof null
-1 + "1"
-1 == "1"
-1 === "1"
-    </pre>
+<p>
+Variable no type check karva mate <b>typeof</b> operator use thay chhe.
+</p>
 
-  <h3>Important Notes</h3>
-    <ul>
-        <li><code>typeof NaN</code> returns <strong>number</strong></li>
-        <li><code>typeof null</code> returns <strong>object</strong> (JavaScript bug)</li>
-        <li><code>==</code> compares values only</li>
-        <li><code>===</code> compares both value and type</li>
-    </ul>
+<pre><code>
+typeof 12;        // "number"
+typeof "hello";   // "string"
+typeof true;      // "boolean"
+</code></pre>
 
-  <p>
-        <strong>Why is <code>typeof NaN</code> a number?</strong><br>
-        NaN represents a failed numeric operation,  
-        so its type remains <strong>number</strong>.
-    </p>
+<h3>typeof Quirks (Confusing Cases)</h3>
 
-  <h3>NaN Example</h3>
-    <pre>
-"hello" - 5 // NaN
-    </pre>
+<pre><code>
+typeof NaN;       // "number"
+typeof null;      // "object"  (JavaScript bug)
+</code></pre>
 
-  <hr>
+<h4>Why typeof NaN is "number"?</h4>
 
-  <h1>Type Coercion</h1>
-    <p>
-        JavaScript automatically converts data types when needed.  
-        This behavior is called <strong>type coercion</strong>.
-    </p>
+<p>
+<b>NaN</b> no matlab chhe <i>Not a Number</i>,
+pan te ek <b>failed number operation</b> chhe,
+etle JavaScript eni type "number" j rakhe chhe.
+</p>
 
-  <h2>Examples</h2>
-    <pre>
-"5" + 1   // "51"
-"5" - 1   // 4
-    </pre>
+<pre><code>
+"hello" - 5;   // NaN
+</code></pre>
 
-  <p>
-        <strong>Explanation:</strong><br>
-        The <code>+</code> operator performs string concatenation,<br>
-        while the <code>-</code> operator converts values to numbers.
-    </p>
+<hr>
+
+<h2>Type Coerction in JavaScript</h2>
+
+<p>
+JavaScript automatic type conversion kare chhe,
+jene <b>Type Coerction</b> kahe chhe.
+</p>
+
+<h3>Examples</h3>
+
+<pre><code>
+"5" + 1;   // "51"  (string concatenation)
+"5" - 1;   // 4     (string converted to number)
+</code></pre>
+
+<hr>
+
+<h2>Comparison Operators</h2>
+
+<h3>Loose Equality (==)</h3>
+
+<p>
+Type convert kari ne comparison kare chhe.
+</p>
+
+<pre><code>
+1 == "1";   // true
+</code></pre>
+
+<h3>Strict Equality (===)</h3>
+
+<p>
+Value ane type banne same hoy to j true return kare chhe.
+</p>
+
+<pre><code>
+1 === "1";  // false
+</code></pre>
+
+<hr>
+
+<p><b>Conclusion:</b></p>
+
+<ul>
+  <li>JavaScript dynamically typed chhe</li>
+  <li><code>typeof</code> ma thoda quirks chhe</li>
+  <li>Type coercion samajhvu important chhe</li>
+  <li><code>===</code> always preferred over <code>==</code></li>
+</ul>
+
+<h1>JavaScript Operators</h1>
+
+<p>This README covers basic JavaScript operators with examples.</p>
+
+<hr>
+
+<h2>Comparison Operators</h2>
+
+<ul>
+  <li><strong>==</strong> : Equal to (value only, type is ignored)</li>
+  <li><strong>===</strong> : Strict equal (value + type)</li>
+  <li><strong>!=</strong> : Not equal (value only)</li>
+  <li><strong>!==</strong> : Strict not equal (value or type)</li>
+  <li><strong>&gt;</strong> : Greater than</li>
+  <li><strong>&lt;</strong> : Less than</li>
+  <li><strong>&gt;=</strong> : Greater than or equal to</li>
+  <li><strong>&lt;=</strong> : Less than or equal to</li>
+</ul>
+
+<pre><code>
+5 == "5"        // true
+5 == 6          // false
+
+5 === "5"       // false
+5 === 5         // true
+
+5 != "5"        // false
+5 != 6          // true
+
+5 !== "5"       // true
+5 !== 5         // false
+
+10 > 5          // true
+5 > 10          // false
+
+5 < 10          // true
+10 < 5          // false
+
+10 >= 10        // true
+8 >= 10         // false
+
+10 <= 10        // true
+12 <= 10        // false
+</code></pre>
+
+<hr>
+
+<h2>Assignment Operators</h2>
+
+<ul>
+  <li><strong>=</strong> : Value assignment operator</li>
+  <li><strong>+=</strong> : Add value to existing value</li>
+  <li><strong>-=</strong> : Subtract value from existing value</li>
+  <li><strong>*=</strong> : Multiply and assign</li>
+  <li><strong>/=</strong> : Divide and assign</li>
+  <li><strong>%=</strong> : Gives remainder</li>
+</ul>
+
+<pre><code>
+let a = 12;
+a += 3;
+
+a -= 4;
+a *= 2;
+a /= 2;
+a %= 2;
+</code></pre>
+
+<hr>
+
+<h2>Logical Operators</h2>
+
+<ul>
+  <li><strong>&&</strong> : AND</li>
+  <li><strong>||</strong> : OR</li>
+  <li><strong>!</strong> : NOT</li>
+</ul>
+
+<pre><code>
+true && true     // true
+false && true   // false
+
+true || true    // true
+false || true   // true
+false || false  // false
+
+!true           // false
+!false          // true
+
+!!12            // true
+</code></pre>
+
+<hr>
+
+<h2>Unary Operators</h2>
+
+<ul>
+  <li><strong>+</strong> : Convert string to number</li>
+  <li><strong>-</strong> : Negative value</li>
+  <li><strong>!</strong> : Logical NOT</li>
+  <li><strong>typeof</strong> : Check data type</li>
+  <li><strong>++</strong> : Increment</li>
+  <li><strong>--</strong> : Decrement</li>
+</ul>
+
+<pre><code>
++"5"        // 5
++"Name"     // NaN
+
+-5
+
+!12         // false
+
+typeof "name"   // string
+
+let a = 12;
+a++;        // post increment
+++a;        // pre increment
+
+let b = 3;
+b--;
+b++;
+</code></pre>
+
+<hr>
+
+0<hr>
+
+<h2>Ternary Operator</h2>
+
+<p>
+Ternary operator is a short form of <strong>if-else</strong>.
+It works on a condition and returns one of two values.
+</p>
+
+<ul>
+  <li><strong>Syntax :</strong> condition ? trueExpression : falseExpression</li>
+</ul>
+
+<pre><code>
+12 > 13 ? console.log("true") : console.log("false");
+</code></pre>
+
+<p>
+If the condition is <strong>true</strong>, first statement will execute.<br>
+If the condition is <strong>false</strong>, second statement will execute.
+</p>
+
+<hr>
+
+<h2>Type Checking in JavaScript</h2>
+
+<h3>typeof Operator</h3>
+
+<ul>
+  <li><strong>typeof null</strong> returns <code>object</code> (JavaScript bug)</li>
+  <li><strong>typeof []</strong> returns <code>object</code></li>
+  <li><strong>typeof NaN</strong> returns <code>number</code></li>
+  <li><strong>typeof</strong> is mainly used for <strong>primitive data types</strong></li>
+</ul>
+
+<pre><code>
+typeof null       // "object"
+typeof []         // "object"
+typeof NaN        // "number"
+typeof "Hello"    // "string"
+</code></pre>
+
+<hr>
+
+<h3>instanceof Operator</h3>
+
+<p>
+<strong>instanceof</strong> is used to check the type of <strong>reference data types</strong>.
+</p>
+
+<ul>
+  <li>Checks whether an object belongs to a constructor</li>
+  <li>Mainly used for arrays, objects, classes</li>
+</ul>
+
+<pre><code>
+let a = [];
+
+a instanceof Array   // true
+a instanceof Object  // true
+</code></pre>
+
+<p>
+<strong>Note:</strong><br>
+Use <code>typeof</code> for <strong>primitive data types</strong><br>
+Use <code>instanceof</code> for <strong>reference data types</strong>
+</p>
+
+<div>
+  <h3>Example 1</h3>
+  <p>let x = 10;</p>
+  <p>let y = 20;</p>
+  <p>if(x>5 && y > 5){
+    console.log("Both are greater than 5");
+    }else{
+    console.log("One or both are not greater than 5");
+    }</p>
+  <p>Answer: Both are greater than 5</p>
+  <p>Why: x and y both are greater than 5 and && operator needs both conditions true.</p>
+</div>
+
+<div>
+  <h3>Example 2</h3>
+  <p>let isAdmin = true;</p>
+  <p>let isLoggedIn = false;</p>
+  <p>if(isAdmin || isLoggedIn){
+    console.log("Acess granted");
+    }else{
+    console.log("Acess Denied");
+    }</p>
+  <p>Answer: Access granted</p>
+  <p>Why: OR (||) operator executes if any one condition is true.</p>
+</div>
+
+<div>
+  <h3>Example 3</h3>
+  <p>let temp = 35;</p>
+  <p>if(!(temp > 30)){
+    console.log("Hot day");
+    }else{
+    console.log("Pleasant day");
+    }</p>
+  <p>Answer: Pleasant day</p>
+  <p>Why: temp > 30 is true, NOT operator makes it false so else runs.</p>
+</div>
+
+<div>
+  <h3>Example 4</h3>
+  <p>let a = 0;</p>
+  <p>if(a){
+    console.log("Truthy value");
+    }else{
+    console.log("Falsy value");
+    }</p>
+  <p>Answer: Falsy value</p>
+  <p>Why: 0 is a falsy value in JavaScript.</p>
+</div>
+
+<div>
+  <h3>Example 5</h3>
+  <p>let score = 78;</p>
+  <p>let grade = score >= 90 ? "A" : score >= 80 ? "B" : score >= 70 ? "C" : "D";</p>
+  <p>console.log("Grade:", grade);</p>
+  <p>Answer: Grade C</p>
+  <p>Why: Score is greater than or equal to 70.</p>
+</div>
+
+<div>
+  <h3>Example 6</h3>
+  <p>let points = 120;</p>
+  <p>let status = points >= 100 ? "Gold" : points >= 50 ? "Silver" : "Bronze";</p>
+  <p>console.log("Status:", status);</p>
+  <p>Answer: Status Gold</p>
+  <p>Why: Points are greater than or equal to 100.</p>
+</div>
+
+<div>
+  <h3>Example 7</h3>
+  <p>let loggedIn = true;</p>
+  <p>let hasToken = false;</p>
+  <p>let access = loggedIn && hasToken ? "Allow" : "Deny";</p>
+  <p>console.log("access:", access);</p>
+  <p>Answer: Deny</p>
+  <p>Why: AND (&&) operator requires both conditions true.</p>
+</div>
+
+<div>
+  <h3>Example 8</h3>
+  <p>let a = 5;</p>
+  <p>a++</p>
+  <p>console.log(a);</p>
+  <p>Answer: 6</p>
+  <p>Why: Post-increment increases value by 1.</p>
+</div>
+
+<div>
+  <h3>Example 9</h3>
+  <p>let a = 8;</p>
+  <p>++a</p>
+  <p>console.log(a);</p>
+  <p>Answer: 9</p>
+  <p>Why: Pre-increment increases value before execution.</p>
+</div>
+
+<div>
+  <h3>Example 10</h3>
+  <p>let b = 4;</p>
+  <p>let c = b++</p>
+  <p>console.log(b, c);</p>
+  <p>Answer: b = 5 , c = 4</p>
+  <p>Why: Post-increment assigns old value first.</p>
+</div>
+
+<div>
+  <h3>Example 11</h3>
+  <p>let b = 4;</p>
+  <p>let c = ++b</p>
+  <p>console.log(b, c);</p>
+  <p>Answer: b = 5 , c = 5</p>
+  <p>Why: Pre-increment happens before assignment.</p>
+</div>
+
+<div>
+  <h3>Example 12</h3>
+  <p>let m = 10;</p>
+  <p>console.log(m--)</p>
+  <p>console.log(m);</p>
+  <p>Answer: 10 then 9</p>
+  <p>Why: Post-decrement prints value first then decreases.</p>
+</div>
+
+<div>
+  <h3>Example 13</h3>
+  <p>let n = 5;</p>
+  <p>let result = n++ + ++n;</p>
+  <p>console.log(result);</p>
+  <p>Answer: 12</p>
+  <p>Why: 5 + 7 = 12.</p>
+</div>
+
+<div>
+  <h3>Example 14</h3>
+  <p>let likes = 100;</p>
+  <p>function likePost(){
+    result ++likes;
+    }</p>
+  <p>console.log(likePost());</p>
+  <p>console.log(likes);</p>
+  <p>Answer: Error</p>
+  <p>Why: Invalid syntax and undefined variable.</p>
+</div>
+
+<div>
+  <h3>Example 15</h3>
+  <p>let count = 5;</p>
+  <p>if(count-- === 5){
+    console.log("Matched");
+    }else{
+    console.log("Not Matched");
+    }</p>
+  <p></p>
+  <p>Answer: Matched</p>
+  <p>Why: Comparison happens before decrement.</p>
+</div>
+
+<title>JavaScript Control Flow Statements</title>
+</head>
+<body>
+
+<header>
+    <h1>JavaScript Control Flow Statements</h1>
+</header>
+
+<main>
+
+<section>
+    <h2>If / If-Else Statements</h2>
+
+    <pre><code>
+// If Statement
+if (12 < 13) {
+    console.log(true);
+}
+
+if (15 < 13) {
+    console.log(true);
+} // condition is false that why if statement not run
+
+if (!12) {
+    console.log("number");
+}
+
+// If-Else Statement
+if (12 < 13) {
+    console.log(true);
+} else {
+    console.log(false);
+}
+
+if (15 < 13) {
+    console.log(true);
+} else {
+    console.log(false);
+}
+
+if (!12) {
+    console.log("number");
+} else {
+    console.log("Not A Number");
+}
+    </code></pre>
+</section>
+
+<section>
+    <h2>If-Else If-Else</h2>
+
+    <pre><code>
+let loggedin = true;
+let admin = false;
+
+if (loggedin && admin) {
+    console.log("welcome admin");
+} else if (loggedin) {
+    console.log("welcome user");
+} else {
+    console.log("go to login page");
+}
+    </code></pre>
+</section>
+
+<section>
+    <h2>Switch Case Statement</h2>
+
+    <pre><code>
+switch ('A') {
+    case 'A':
+        console.log("A");
+        break;
+    case 'B':
+        console.log("B");
+        break;
+    case 'C':
+        console.log("C");
+        break;
+    default:
+        console.log("D");
+        break;
+}
+
+switch ('First50') {
+    case 'First50':
+        console.log("50% off on first order");
+        break;
+    case 'BOGO':
+        console.log("Buy one get one free");
+        break;
+    case 'BlackFriday':
+        console.log("It's black friday sale-get at rs.50");
+        break;
+    default:
+        console.log("Offer not valid");
+        break;
+}
+    </code></pre>
+</section>
+
+<section>
+    <h2>Early Return Pattern</h2>
+
+    <pre><code>
+function score(value) {
+    if (value > 90) {
+        return "Value is more than 90";
+    } else if (value < 80) {
+        return "Value is less than 80";
+    } else if (value < 70) {
+        return "Value is less than 70";
+    } else if (value < 60) {
+        return "Value is less than 60";
+    } else {
+        return "Value is less than 60";
+    }
+}
+
+score(100);
+
+function score1(value) {
+    if (value > 90) return "Value is more than 90";
+    else if (value < 80) return "Value is less than 80";
+    else if (value < 70) return "Value is less than 70";
+    else if (value < 60) return "Value is less than 60";
+    else return "Value is less than 60";
+}
+    </code></pre>
+
+    <pre><code>
+function score2(value) {
+    if (value &lt; 60) return "Value is less than 60";
+    else if (value &lt; 70) return "Value is less than 70";
+    else if (value &lt; 80) return "Value is less than 80";
+    else if (value &lt; 90) return "Value is less than 90";
+    else return "Value is more than 90";
+}
+</code></pre>
+
+<hr>
+
+<h2>🎮 Rock Paper Scissors Game</h2>
+
+<pre><code>
+function rps(user, computer) {
+    if (user === computer) return "it's a tie";
+
+    if (user === "rock" && computer === "scissor") return "user wins";
+    if (user === "scissor" && computer === "paper") return "user wins";
+    if (user === "paper" && computer === "rock") return "user wins";
+
+    return "computer wins";
+}
+</code></pre>
+
+<hr>
+
+<footer>
+    <p><strong>Author:</strong> JavaScript Learner</p>
+    <p><strong>Purpose:</strong> Practice & Learning</p>
+</footer>
+</section>
+
+</main>
+</section>
+
+</main>

@@ -78,3 +78,10 @@ temp_d = {};
 // type coeration
 // "5" + 1
 // "5" - 1
+
+// Truthy vs Falsy Values
+// 0, false, "", null, undefined, NaN, documnet.all, false
+// ek. !!0 check value is true and false
+// ex. if(null){}, js convert it into false
+// ex. if(-1){), js convert it into true
+// all --> true

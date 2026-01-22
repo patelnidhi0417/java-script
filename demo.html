@@ -768,19 +768,12 @@ Use <code>instanceof</code> for <strong>reference data types</strong>
   <p>Why: Comparison happens before decrement.</p>
 </div>
 
-<title>JavaScript Control Flow Statements</title>
-</head>
+<h1>JavaScript Control Flow Statements</h1>
 <body>
-
-<header>
-    <h1>JavaScript Control Flow Statements</h1>
-</header>
-
 <main>
 
 <section>
     <h2>If / If-Else Statements</h2>
-
     <pre><code>
 // If Statement
 if (12 < 13) {
@@ -794,7 +787,6 @@ if (15 < 13) {
 if (!12) {
     console.log("number");
 }
-
 // If-Else Statement
 if (12 < 13) {
     console.log(true);
@@ -933,3 +925,100 @@ function rps(user, computer) {
 </section>
 
 </main>
+
+<h1>JavaScript Loops</h1>
+<h2>For Loop</h2>
+<pre><code>
+// loops -- repeating code blocks
+// 1 2 3 4 5 6
+
+// for loop
+// why use for loop? when you know how many times you want to repeat a block
+//print 1 to 10--> console.log(1); console.log(2); console.log(10);
+// kaya thi javanu chhe --> kaya sudhi javanu chhe --> kevi rite javanu chhe
+// for (ex. 150 increment by 1)
+//(start; end; change)
+
+for (let i = 1; i <= 10; i++) {
+    console.log(i);
+}
+
+for (let i = 20; i >= 10; i--) {
+    console.log(i);
+}
+</code></pre>
+
+<h2>While Loop</h2>
+<pre><code>
+// while loop do while loop
+// kaya thi javanu chhe --> Kaya rokavanu chhe --> Kevi rite javanu chhe
+// while (ex. 1> Hello world -> stop when condition false)
+
+let j = 10;
+while (j <= 20) {
+    console.log("j:", j);
+    j++;
+}
+
+let k = 10;
+while (k <= 20) {
+    console.log(k);
+    k++;
+}
+
+let a = 0;
+while (a <= 5) { 
+    console.log(a); 
+    a++;
+}
+
+let c = 30;
+while (c > 20) { 
+    console.log(c); 
+    c--;
+}
+
+let d = "Hello"; 
+let i = 0;
+while (i < 5) { 
+    console.log(d); 
+    i++;
+}
+
+let f = 50;
+while (f <= 60) { 
+    console.log(f); 
+    f++;
+}
+
+let q = 60;
+while (q >= 50) {
+    console.log(q);
+    q--;
+}
+</code></pre>
+
+<h2>Do While Loop</h2>
+<pre><code>
+// do while loop
+// do {} while (end);
+
+let n = 5;
+do {
+    console.log("n:", n);
+    n++;
+} while (n <= 10);
+
+let g = 10;
+do {
+    console.log("do while:", g);
+    g++;
+} while (g <= 20);
+
+let h = 10;
+do {
+    console.log("do while:", h);
+    h--;
+} while (h >= 1);
+</code></pre>
+

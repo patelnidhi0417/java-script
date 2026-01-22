@@ -781,7 +781,7 @@ Use <code>instanceof</code> for <strong>reference data types</strong>
 <section>
     <h2>If / If-Else Statements</h2>
 
-    <pre><code>
+  <pre><code>
 // If Statement
 if (12 < 13) {
     console.log(true);
@@ -819,7 +819,7 @@ if (!12) {
 <section>
     <h2>If-Else If-Else</h2>
 
-    <pre><code>
+  <pre><code>
 let loggedin = true;
 let admin = false;
 
@@ -836,7 +836,7 @@ if (loggedin && admin) {
 <section>
     <h2>Switch Case Statement</h2>
 
-    <pre><code>
+  <pre><code>
 switch ('A') {
     case 'A':
         console.log("A");
@@ -872,7 +872,7 @@ switch ('First50') {
 <section>
     <h2>Early Return Pattern</h2>
 
-    <pre><code>
+  <pre><code>
 function score(value) {
     if (value > 90) {
         return "Value is more than 90";
@@ -898,7 +898,7 @@ function score1(value) {
 }
     </code></pre>
 
-    <pre><code>
+  <pre><code>
 function score2(value) {
     if (value &lt; 60) return "Value is less than 60";
     else if (value &lt; 70) return "Value is less than 70";

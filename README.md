@@ -1941,10 +1941,10 @@ function f() {
   <h1> Example 12: </h1>
   <p>Can you assign a function to a variable and call it?</p>
   <pre><code>
-let a = function () {
+let a1 = function () {
   console.log("Hello");
 };
-a();
+a1();
   </code></pre>
   <p><b>Ans:</b> Yes.</p>
   <p><b>Why:</b> Functions can be stored in variables.</p>
@@ -2111,3 +2111,4 @@ function temp_var() {
   <p><b>Ans:</b> Hello.</p>
   <p><b>Why:</b> Function declarations are hoisted.</p>
 </div>
+

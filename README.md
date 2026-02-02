@@ -1,65 +1,50 @@
 <h1>Example of var, let and const</h1>
-
 <h2>1. var</h2>
 <p><code>var</code> keyword JavaScript ma old way chhe variable declare karvano.</p>
-
 <ul>
   <li><code>var</code> can be <b>redeclared</b> and <b>reassigned</b></li>
   <li><code>var</code> is <b>function scoped</b></li>
   <li>Block scope follow nathi karto</li>
 </ul>
-
 <pre>
 var a = "temp";
 var _123 = "Hello";
 var $123 = "hello";
 b = 24; // never recommended (auto global)
 </pre>
-
 <h2>2. let</h2>
 <p><code>let</code> ES6 ma introduce thayu chhe.</p>
-
 <ul>
   <li><code>let</code> can be <b>reassigned</b> but <b>not redeclared</b></li>
   <li><code>let</code> is <b>block scoped</b></li>
 </ul>
-
 <pre>
 let temp = "abc";
 </pre>
-
 <h2>3. const</h2>
 <p><code>const</code> variable ni value change kari sakay nahi.</p>
-
 <ul>
   <li>Must be initialized at declaration time</li>
   <li>Block scoped</li>
 </ul>
-
 <pre>
 const temp_const = "Hello World!!";
 </pre>
-
 <h2>Declaration and Initialization</h2>
-
 <pre>
 var d;        // declaration
 var d = 12;   // declaration + initialization
 d = 24;       // reassigned
 d = "hello";  // reassigned again
 </pre>
-
 <h2>Scope in JavaScript</h2>
 <p>JavaScript ma mainly 3 scope hoy chhe:</p>
-
 <ul>
   <li>Global Scope</li>
   <li>Block Scope</li>
   <li>Function Scope</li>
 </ul>
-
 <h3>var Scope Example</h3>
-
 <pre>
 var f = 23;
 {
@@ -68,9 +53,7 @@ var f = 23;
 }
 console.log(f); // 43
 </pre>
-
 <h3>let Scope Example</h3>
-
 <pre>
 let e = 23;
 {
@@ -79,114 +62,85 @@ let e = 23;
 }
 console.log(e); // 23
 </pre>
-
 <h2>Temporal Dead Zone (TDZ)</h2>
-
 <p>
-TDZ <code>let</code> ane <code>const</code> par lagu pade chhe, 
-<code>var</code> par nahi.
+  TDZ <code>let</code> ane <code>const</code> par lagu pade chhe,
+  <code>var</code> par nahi.
 </p>
-
 <pre>
 console.log(temp_b);
 var temp_b = 24; // undefined (no TDZ)
 </pre>
-
 <pre>
 // console.log(j);
 // let j = 12; // ReferenceError (TDZ)
 </pre>
-
 <h2>Hoisting</h2>
-
 <p>
-Hoisting ma declaration upar jai chhe pan initialization niche j rahe chhe.
+  Hoisting ma declaration upar jai chhe pan initialization niche j rahe chhe.
 </p>
-
 <ul>
   <li><b>var</b> → hoisted as <code>undefined</code></li>
   <li><b>let</b> → hoisted but TDZ error</li>
   <li><b>const</b> → hoisted but TDZ error</li>
 </ul>
-
 <pre>
 var temp_d = 12;
 </pre>
-
 <div>
-<h3>Example 1:</h3>
-<p>console.log(nm);</p>
-<p>let nm = "name";</p>
-<p>Answer or Error:Error </p>
-<p>Why:we print console before intilization & use let keyword for declare variable .</p>
+  <h3>Example 1:</h3>
+  <p>console.log(nm);</p>
+  <p>let nm = "name";</p>
+  <p>Answer or Error:Error </p>
+  <p>Why:we print console before intilization & use let keyword for declare variable .</p>
 </div>
 <div>
-<h3>Example 2:</h3>
-<p>console.log(b);</p>
-<p>var b= "username"; </p>
-<p>Answer or Error:Answer(undefinded)</p>
-<p>Why:When we print console before intilization & use var keyword for declare variable .</p>
+  <h3>Example 2:</h3>
+  <p>console.log(b);</p>
+  <p>var b= "username"; </p>
+  <p>Answer or Error:Answer(undefinded)</p>
+  <p>Why:When we print console before intilization & use var keyword for declare variable .</p>
 </div>
-
 <div>
-<h3>Example 3:</h3>
-<p>var x = 1 </p>
-<p>{
-var x = 2
-}
-</p>
-<p>consol.log(x) ;</p>
-<p>Answer or Error:Answer(2)</p>
-<p>Why:When we use var than in console print block scope.</p>
+  <h3>Example 3:</h3>
+  <p>var x = 1 </p>
+  <p>{
+    var x = 2
+    }
+  </p>
+  <p>consol.log(x) ;</p>
+  <p>Answer or Error:Answer(2)</p>
+  <p>Why:When we use var than in console print block scope.</p>
 </div>
-
 <h3>Example 4:</h3>
 <p>let a 10; </p>
 <p>{
-let a = 20;
-console.log("Inside:", a);</p>
+  let a = 20;
+  console.log("Inside:", a);</p>
 }<p>
-console.log("Outside:", a);
+  console.log("Outside:", a);
 </p>
-<p>Answer or Error:Answer(Inside: 20  Outside: 10) </p>
+<p>Answer or Error:Answer(Inside: 20 Outside: 10) </p>
 <p>Why:In console first print block scope after print global scope. </p>
 </div>
-
-<h3>Example 5:</h3>
-<p>const person = {name: "demo"}; </p>
-on console.log
-<p>person.name= "user"; </p>
-<p>person = {}; X </p>
-<p>Answer or Error:Error </p>
-<p>Why:eneter the object than change the value and without the add object otherwise not change the value.</p>
-</div>
-
 <h1>JavaScript Data Types</h1>
-
 <p>JavaScript ma mainly <b>2 types na data types</b> hoy chhe:</p>
-
 <ul>
   <li><b>Primitive Data Types</b></li>
   <li><b>Non-Primitive (Reference) Data Types</b></li>
 </ul>
-
 <hr>
-
 <h2>1. Primitive Data Types</h2>
-
 <p>
-Primitive data types ma <b>actual value copy</b> thay chhe.
-Ek variable change karva thi bijo variable effect thato nathi.
+  Primitive data types ma <b>actual value copy</b> thay chhe.
+  Ek variable change karva thi bijo variable effect thato nathi.
 </p>
-
 <pre><code>
 let a = 12;
 let b = a;   // copy value
 a = a + 3;
 </code></pre>
-
 <h3>Primitive Data Types List</h3>
-
 <ul>
   <li>String</li>
   <li>Number</li>
@@ -196,51 +150,35 @@ a = a + 3;
   <li>Symbol</li>
   <li>BigInt</li>
 </ul>
-
 <h3>String</h3>
-
 <p>String 3 rite lakhay chhe:</p>
-
 <pre><code>
 let d = "name";
 d = 'username';
 d = `firstname`;
 </code></pre>
-
 <h3>Number</h3>
-
 <pre><code>
 let e = 12;
 e = 12.25;
 </code></pre>
-
 <h3>Boolean</h3>
-
 <pre><code>
 let f = true;
 f = false;
 </code></pre>
-
 <h3>Null</h3>
-
 <p>Null ma value manually aapvi pade chhe.</p>
-
 <pre><code>
 let g = null;
 </code></pre>
-
 <h3>Undefined</h3>
-
 <p>Undefined default value hoy chhe, value assign na kari hoy.</p>
-
 <pre><code>
 let h;
 </code></pre>
-
 <h3>Symbol</h3>
-
 <p>Symbol unique ane immutable value hoy chhe.</p>
-
 <pre><code>
 let u1 = Symbol("uid");
 let u2 = Symbol("uid");
@@ -250,11 +188,8 @@ let obj = { uid: 1, name: "test", email: "test@test.com" };
 let u3 = Symbol("uid");
 obj[u3] = "101";
 </code></pre>
-
 <h3>BigInt</h3>
-
 <p>BigInt large numbers handle karva mate use thay chhe.</p>
-
 <pre><code>
 let number = 9007199254740991;
 number = number + 6;
@@ -262,38 +197,28 @@ number = number + 6;
 let num2 = 900719925470991n;
 num2 + 3n;
 </code></pre>
-
 <hr>
-
 <h2>2. Non-Primitive (Reference) Data Types</h2>
-
 <p>
-Non-primitive data types ma <b>reference copy</b> thay chhe.
-Ek variable change karva thi bijo variable par pan effect pade chhe.
+  Non-primitive data types ma <b>reference copy</b> thay chhe.
+  Ek variable change karva thi bijo variable par pan effect pade chhe.
 </p>
-
 <pre><code>
 let temp_a = [1, 2, 3];
 let temp_b = temp_a;
 temp_b.pop(); // original array pan change thase
 </code></pre>
-
 <h3>Non-Primitive Types List</h3>
-
 <ul>
   <li>Array</li>
   <li>Object</li>
   <li>Function</li>
 </ul>
-
 <h3>Array</h3>
-
 <pre><code>
 let temp_array = ["name", "age", "phone_number"];
 </code></pre>
-
 <h3>Object</h3>
-
 <pre><code>
 let obj1 = {
   name: "test",
@@ -301,130 +226,93 @@ let obj1 = {
   phone_number: 558998554
 };
 </code></pre>
-
 <h3>Function</h3>
-
 <pre><code>
 function name(params) {
   // function body
 }
 </code></pre>
-
 <hr>
 <h2>Dynamic Typing in JavaScript</h2>
-
 <p>
-JavaScript <b>dynamically typed language</b> chhe.
-Etle ek variable alag-alag type ni value hold kari shake chhe.
+  JavaScript <b>dynamically typed language</b> chhe.
+  Etle ek variable alag-alag type ni value hold kari shake chhe.
 </p>
-
 <pre><code>
 let temp_d = "name";   // string
 temp_d = 123;         // number
 temp_d = {};          // object
 </code></pre>
-
 <p>
-Aa reason thi JavaScript flexible chhe, pan large projects mate
-<b>TypeScript</b> use karvama aave chhe.
+  Aa reason thi JavaScript flexible chhe, pan large projects mate
+  <b>TypeScript</b> use karvama aave chhe.
 </p>
-
 <pre><code>
 // JavaScript --> TypeScript
 </code></pre>
-
 <hr>
-
 <h2>typeof Operator</h2>
-
 <p>
-Variable no type check karva mate <b>typeof</b> operator use thay chhe.
+  Variable no type check karva mate <b>typeof</b> operator use thay chhe.
 </p>
-
 <pre><code>
 typeof 12;        // "number"
 typeof "hello";   // "string"
 typeof true;      // "boolean"
 </code></pre>
-
 <h3>typeof Quirks (Confusing Cases)</h3>
-
 <pre><code>
 typeof NaN;       // "number"
 typeof null;      // "object"  (JavaScript bug)
 </code></pre>
-
 <h4>Why typeof NaN is "number"?</h4>
-
 <p>
-<b>NaN</b> no matlab chhe <i>Not a Number</i>,
-pan te ek <b>failed number operation</b> chhe,
-etle JavaScript eni type "number" j rakhe chhe.
+  <b>NaN</b> no matlab chhe <i>Not a Number</i>,
+  pan te ek <b>failed number operation</b> chhe,
+  etle JavaScript eni type "number" j rakhe chhe.
 </p>
-
 <pre><code>
 "hello" - 5;   // NaN
 </code></pre>
-
 <hr>
-
 <h2>Type Coerction in JavaScript</h2>
-
 <p>
-JavaScript automatic type conversion kare chhe,
-jene <b>Type Coerction</b> kahe chhe.
+  JavaScript automatic type conversion kare chhe,
+  jene <b>Type Coerction</b> kahe chhe.
 </p>
-
 <h3>Examples</h3>
-
 <pre><code>
 "5" + 1;   // "51"  (string concatenation)
 "5" - 1;   // 4     (string converted to number)
 </code></pre>
-
 <hr>
-
 <h2>Comparison Operators</h2>
-
 <h3>Loose Equality (==)</h3>
-
 <p>
-Type convert kari ne comparison kare chhe.
+  Type convert kari ne comparison kare chhe.
 </p>
-
 <pre><code>
 1 == "1";   // true
 </code></pre>
-
 <h3>Strict Equality (===)</h3>
-
 <p>
-Value ane type banne same hoy to j true return kare chhe.
+  Value ane type banne same hoy to j true return kare chhe.
 </p>
-
 <pre><code>
 1 === "1";  // false
 </code></pre>
-
 <hr>
-
 <p><b>Conclusion:</b></p>
-
 <ul>
   <li>JavaScript dynamically typed chhe</li>
   <li><code>typeof</code> ma thoda quirks chhe</li>
   <li>Type coercion samajhvu important chhe</li>
   <li><code>===</code> always preferred over <code>==</code></li>
 </ul>
-
 <h1>JavaScript Operators</h1>
-
 <p>This README covers basic JavaScript operators with examples.</p>
-
 <hr>
-
 <h2>Comparison Operators</h2>
-
 <ul>
   <li><strong>==</strong> : Equal to (value only, type is ignored)</li>
   <li><strong>===</strong> : Strict equal (value + type)</li>
@@ -435,7 +323,6 @@ Value ane type banne same hoy to j true return kare chhe.
   <li><strong>&gt;=</strong> : Greater than or equal to</li>
   <li><strong>&lt;=</strong> : Less than or equal to</li>
 </ul>
-
 <pre><code>
 5 == "5"        // true
 5 == 6          // false
@@ -461,11 +348,8 @@ Value ane type banne same hoy to j true return kare chhe.
 10 <= 10        // true
 12 <= 10        // false
 </code></pre>
-
 <hr>
-
 <h2>Assignment Operators</h2>
-
 <ul>
   <li><strong>=</strong> : Value assignment operator</li>
   <li><strong>+=</strong> : Add value to existing value</li>
@@ -474,7 +358,6 @@ Value ane type banne same hoy to j true return kare chhe.
   <li><strong>/=</strong> : Divide and assign</li>
   <li><strong>%=</strong> : Gives remainder</li>
 </ul>
-
 <pre><code>
 let a = 12;
 a += 3;
@@ -484,17 +367,13 @@ a *= 2;
 a /= 2;
 a %= 2;
 </code></pre>
-
 <hr>
-
 <h2>Logical Operators</h2>
-
 <ul>
   <li><strong>&&</strong> : AND</li>
   <li><strong>||</strong> : OR</li>
   <li><strong>!</strong> : NOT</li>
 </ul>
-
 <pre><code>
 true && true     // true
 false && true   // false
@@ -508,11 +387,8 @@ false || false  // false
 
 !!12            // true
 </code></pre>
-
 <hr>
-
 <h2>Unary Operators</h2>
-
 <ul>
   <li><strong>+</strong> : Convert string to number</li>
   <li><strong>-</strong> : Negative value</li>
@@ -521,7 +397,6 @@ false || false  // false
   <li><strong>++</strong> : Increment</li>
   <li><strong>--</strong> : Decrement</li>
 </ul>
-
 <pre><code>
 +"5"        // 5
 +"Name"     // NaN
@@ -540,77 +415,57 @@ let b = 3;
 b--;
 b++;
 </code></pre>
-
 <hr>
-
-0<hr>
-
+<hr>
 <h2>Ternary Operator</h2>
-
 <p>
-Ternary operator is a short form of <strong>if-else</strong>.
-It works on a condition and returns one of two values.
+  Ternary operator is a short form of <strong>if-else</strong>.
+  It works on a condition and returns one of two values.
 </p>
-
 <ul>
   <li><strong>Syntax :</strong> condition ? trueExpression : falseExpression</li>
 </ul>
-
 <pre><code>
 12 > 13 ? console.log("true") : console.log("false");
 </code></pre>
-
 <p>
-If the condition is <strong>true</strong>, first statement will execute.<br>
-If the condition is <strong>false</strong>, second statement will execute.
+  If the condition is <strong>true</strong>, first statement will execute.<br>
+  If the condition is <strong>false</strong>, second statement will execute.
 </p>
-
 <hr>
-
 <h2>Type Checking in JavaScript</h2>
-
 <h3>typeof Operator</h3>
-
 <ul>
   <li><strong>typeof null</strong> returns <code>object</code> (JavaScript bug)</li>
   <li><strong>typeof []</strong> returns <code>object</code></li>
   <li><strong>typeof NaN</strong> returns <code>number</code></li>
   <li><strong>typeof</strong> is mainly used for <strong>primitive data types</strong></li>
 </ul>
-
 <pre><code>
 typeof null       // "object"
 typeof []         // "object"
 typeof NaN        // "number"
 typeof "Hello"    // "string"
 </code></pre>
-
 <hr>
-
 <h3>instanceof Operator</h3>
-
 <p>
-<strong>instanceof</strong> is used to check the type of <strong>reference data types</strong>.
+  <strong>instanceof</strong> is used to check the type of <strong>reference data types</strong>.
 </p>
-
 <ul>
   <li>Checks whether an object belongs to a constructor</li>
   <li>Mainly used for arrays, objects, classes</li>
 </ul>
-
 <pre><code>
 let a = [];
-
 a instanceof Array   // true
 a instanceof Object  // true
 </code></pre>
-
 <p>
-<strong>Note:</strong><br>
-Use <code>typeof</code> for <strong>primitive data types</strong><br>
-Use <code>instanceof</code> for <strong>reference data types</strong>
+  <strong>Note:</strong><br>
+  Use <code>typeof</code> for <strong>primitive data types</strong><br>
+  Use <code>instanceof</code> for <strong>reference data types</strong>
 </p>
-
 <div>
   <h3>Example 1</h3>
   <p>let x = 10;</p>
@@ -623,7 +478,6 @@ Use <code>instanceof</code> for <strong>reference data types</strong>
   <p>Answer: Both are greater than 5</p>
   <p>Why: x and y both are greater than 5 and && operator needs both conditions true.</p>
 </div>
-
 <div>
   <h3>Example 2</h3>
   <p>let isAdmin = true;</p>
@@ -636,7 +490,6 @@ Use <code>instanceof</code> for <strong>reference data types</strong>
   <p>Answer: Access granted</p>
   <p>Why: OR (||) operator executes if any one condition is true.</p>
 </div>
-
 <div>
   <h3>Example 3</h3>
   <p>let temp = 35;</p>
@@ -648,7 +501,6 @@ Use <code>instanceof</code> for <strong>reference data types</strong>
   <p>Answer: Pleasant day</p>
   <p>Why: temp > 30 is true, NOT operator makes it false so else runs.</p>
 </div>
-
 <div>
   <h3>Example 4</h3>
   <p>let a = 0;</p>
@@ -660,7 +512,6 @@ Use <code>instanceof</code> for <strong>reference data types</strong>
   <p>Answer: Falsy value</p>
   <p>Why: 0 is a falsy value in JavaScript.</p>
 </div>
-
 <div>
   <h3>Example 5</h3>
   <p>let score = 78;</p>
@@ -669,7 +520,6 @@ Use <code>instanceof</code> for <strong>reference data types</strong>
   <p>Answer: Grade C</p>
   <p>Why: Score is greater than or equal to 70.</p>
 </div>
-
 <div>
   <h3>Example 6</h3>
   <p>let points = 120;</p>
@@ -678,7 +528,6 @@ Use <code>instanceof</code> for <strong>reference data types</strong>
   <p>Answer: Status Gold</p>
   <p>Why: Points are greater than or equal to 100.</p>
 </div>
-
 <div>
   <h3>Example 7</h3>
   <p>let loggedIn = true;</p>
@@ -688,7 +537,6 @@ Use <code>instanceof</code> for <strong>reference data types</strong>
   <p>Answer: Deny</p>
   <p>Why: AND (&&) operator requires both conditions true.</p>
 </div>
-
 <div>
   <h3>Example 8</h3>
   <p>let a = 5;</p>
@@ -697,7 +545,6 @@ Use <code>instanceof</code> for <strong>reference data types</strong>
   <p>Answer: 6</p>
   <p>Why: Post-increment increases value by 1.</p>
 </div>
-
 <div>
   <h3>Example 9</h3>
   <p>let a = 8;</p>
@@ -706,7 +553,6 @@ Use <code>instanceof</code> for <strong>reference data types</strong>
   <p>Answer: 9</p>
   <p>Why: Pre-increment increases value before execution.</p>
 </div>
-
 <div>
   <h3>Example 10</h3>
   <p>let b = 4;</p>
@@ -715,7 +561,6 @@ Use <code>instanceof</code> for <strong>reference data types</strong>
   <p>Answer: b = 5 , c = 4</p>
   <p>Why: Post-increment assigns old value first.</p>
 </div>
-
 <div>
   <h3>Example 11</h3>
   <p>let b = 4;</p>
@@ -724,7 +569,6 @@ Use <code>instanceof</code> for <strong>reference data types</strong>
   <p>Answer: b = 5 , c = 5</p>
   <p>Why: Pre-increment happens before assignment.</p>
 </div>
-
 <div>
   <h3>Example 12</h3>
   <p>let m = 10;</p>
@@ -733,7 +577,6 @@ Use <code>instanceof</code> for <strong>reference data types</strong>
   <p>Answer: 10 then 9</p>
   <p>Why: Post-decrement prints value first then decreases.</p>
 </div>
-
 <div>
   <h3>Example 13</h3>
   <p>let n = 5;</p>
@@ -742,7 +585,6 @@ Use <code>instanceof</code> for <strong>reference data types</strong>
   <p>Answer: 12</p>
   <p>Why: 5 + 7 = 12.</p>
 </div>
-
 <div>
   <h3>Example 14</h3>
   <p>let likes = 100;</p>
@@ -754,7 +596,6 @@ Use <code>instanceof</code> for <strong>reference data types</strong>
   <p>Answer: Error</p>
   <p>Why: Invalid syntax and undefined variable.</p>
 </div>
-
 <div>
   <h3>Example 15</h3>
   <p>let count = 5;</p>
@@ -767,265 +608,1506 @@ Use <code>instanceof</code> for <strong>reference data types</strong>
   <p>Answer: Matched</p>
   <p>Why: Comparison happens before decrement.</p>
 </div>
-
-<title>JavaScript Control Flow Statements</title>
-</head>
-<body>
-
-<header>
-    <h1>JavaScript Control Flow Statements</h1>
-</header>
-
-<main>
-
-<section>
-    <h2>If / If-Else Statements</h2>
-
-  <pre><code>
-// If Statement
-if (12 < 13) {
+<h1>JavaScript Control Flow Statements</h1>
+<p>
+  Control flow statements in JavaScript allow you to control the execution of code
+  based on conditions. This README explains <strong>if</strong>, <strong>if-else</strong>,
+  <strong>if-else if-else</strong>, and <strong>switch</strong> statements with examples.
+</p>
+<hr>
+<h2>1. If Statement</h2>
+<p>
+  The <strong>if</strong> statement executes a block of code only when the given condition
+  evaluates to <code>true</code>.
+</p>
+<pre><code>
+// Example 1
+if (12 &lt; 13) {
     console.log(true);
 }
-
-if (15 < 13) {
+</code></pre>
+<p><strong>Explanation:</strong> Since <code>12 &lt; 13</code> is true, the code runs.</p>
+<pre><code>
+// Example 2
+if (1513) {
     console.log(true);
-} // condition is false that why if statement not run
-
-if (!12) {
+}
+</code></pre>
+<p>
+  <strong>Explanation:</strong> Any non-zero number in JavaScript is treated as
+  <code>true</code>, so this condition runs.
+</p>
+<pre><code>
+// Example 3
+if (112) {
     console.log("number");
 }
-
-// If-Else Statement
-if (12 < 13) {
+</code></pre>
+<p>
+  <strong>Explanation:</strong> Non-zero numbers are <strong>truthy</strong> values.
+</p>
+<hr>
+<h2>2. If-Else Statement</h2>
+<p>
+  The <strong>if-else</strong> statement runs one block if the condition is true and
+  another block if it is false.
+</p>
+<pre><code>
+// Example 1
+if (12 &lt; 13) {
     console.log(true);
 } else {
     console.log(false);
 }
-
-if (15 < 13) {
+</code></pre>
+<pre><code>
+// Example 2
+if (15 &lt; 13) {
     console.log(true);
 } else {
     console.log(false);
 }
-
+</code></pre>
+<p>
+  <strong>Explanation:</strong> Since <code>15 &lt; 13</code> is false, the <code>else</code>
+  block executes.
+</p>
+<pre><code>
+// Example 3
 if (!12) {
     console.log("number");
 } else {
     console.log("Not A Number");
 }
-    </code></pre>
-</section>
-
-<section>
-    <h2>If-Else If-Else</h2>
-
-  <pre><code>
-let loggedin = true;
+</code></pre>
+<p>
+  <strong>Explanation:</strong> <code>12</code> is truthy, so <code>!12</code> becomes
+  <code>false</code>, and the <code>else</code> block runs.
+</p>
+<hr>
+<h2>3. If - Else If - Else Statement</h2>
+<p>
+  This structure is used when multiple conditions need to be checked.
+</p>
+<pre><code>
+let logedin = true;
 let admin = false;
 
-if (loggedin && admin) {
+if (logedin && admin) {
     console.log("welcome admin");
-} else if (loggedin) {
+} else if (logedin) {
     console.log("welcome user");
 } else {
     console.log("go to login page");
 }
-    </code></pre>
-</section>
-
-<section>
-    <h2>Switch Case Statement</h2>
-
-  <pre><code>
-switch ('A') {
-    case 'A':
-        console.log("A");
-        break;
-    case 'B':
-        console.log("B");
-        break;
-    case 'C':
-        console.log("C");
-        break;
-    default:
-        console.log("D");
-        break;
+</code></pre>
+<p>
+  <strong>Explanation:</strong>
+</p>
+<ul>
+  <li>If the user is logged in and is an admin → Admin message</li>
+  <li>If the user is logged in but not an admin → User message</li>
+  <li>If the user is not logged in → Redirect message</li>
+</ul>
+<hr>
+<h1>JavaScript Switch Case & Early Return Pattern</h1>
+<hr>
+<h2>1. Switch Case Statement</h2>
+<p>
+  The <strong>switch</strong> statement compares a given value with multiple
+  <code>case</code> values. When a match is found, that block of code is executed.
+</p>
+<h3>Example 1</h3>
+<pre><code>
+switch ('Today') { 
+  case 'Today':
+    console.log("A");
+    break;
+  case 'B':
+    console.log("B");
+    break;
+  case 'C':
+    console.log("C");
+    break;
+  default:
+    console.log("D");
+    break;
 }
+</code></pre>
+<p>
+  <strong>Explanation:</strong><br>
+<ul>
+  <li><code>'Today'</code> value <code>case 'Today'</code> sathe match thase</li>
+  <li>So output: <strong>A</strong></li>
+  <li><code>break</code> statement switch ne stop kare che</li>
+</ul>
+</p>
+<hr>
+<h3>Example 2</h3>
+<pre><code>
+let day = 'Monday';
 
-switch ('First50') {
-    case 'First50':
-        console.log("50% off on first order");
-        break;
-    case 'BOGO':
-        console.log("Buy one get one free");
-        break;
-    case 'BlackFriday':
-        console.log("It's black friday sale-get at rs.50");
-        break;
-    default:
-        console.log("Offer not valid");
-        break;
+switch (day) {
+  case 'Monday':
+    console.log("Start of the week");
+    break;
+  case 'Friday':
+    console.log("Almost weekend");
+    break;
+  case 'Sunday':
+    console.log("Holiday");
+    break;
+  default:
+    console.log("Normal day");
+    break;
 }
-    </code></pre>
-</section>
-
-<section>
-    <h2>Early Return Pattern</h2>
-
-  <pre><code>
+</code></pre>
+<p>
+  <strong>Explanation:</strong><br>
+  <code>day</code> ni value <strong>Monday</strong> che, etle output:
+  <strong>"Start of the week"</strong>
+</p>
+<hr>
+<h2>2. Early Return Pattern</h2>
+<p>
+  <strong>Early return</strong> pattern ma function ne jaldi return kari devay che
+  jethi unnecessary condition check na thay.
+</p>
+<h3>Example 1 (Normal if-else)</h3>
+<pre><code>
 function score(value) {
-    if (value > 90) {
-        return "Value is more than 90";
-    } else if (value < 80) {
-        return "Value is less than 80";
-    } else if (value < 70) {
-        return "Value is less than 70";
-    } else if (value < 60) {
-        return "Value is less than 60";
-    } else {
-        return "Value is less than 60";
-    }
+  if (value > 90) {
+    return "Value is more than 90";
+  } else if (value < 80) {
+    return "Value is less than 80";
+  } else if (value < 70) {
+    return "Value is less than 70";
+  } else if (value < 60) {
+    return "Value is less than 60";
+  } else {
+    return "Value is equal or between 80 to 90";
+  }
 }
-
 score(100);
-
+</code></pre>
+<p>
+  <strong>Note:</strong> Condition order important che, wrong order thi incorrect result avi sake.
+</p>
+<hr>
+<h3>Example 2 (Early Return Pattern)</h3>
+<pre><code>
 function score1(value) {
-    if (value > 90) return "Value is more than 90";
-    else if (value < 80) return "Value is less than 80";
-    else if (value < 70) return "Value is less than 70";
-    else if (value < 60) return "Value is less than 60";
-    else return "Value is less than 60";
+  if (value > 90) return "Value is more than 90";
+  if (value > 80) return "Value is less than 90";
+  if (value > 70) return "Value is less than 80";
+  if (value > 60) return "Value is less than 70";
+  return "Value is less than or equal to 60";
 }
-    </code></pre>
+</code></pre>
+<p>
+  <strong>Advantages of Early Return:</strong>
+<ul>
+  <li>Code clean & readable bane che</li>
+  <li>Less nested conditions</li>
+  <li>Performance better</li>
+</ul>
+</p>
+<hr>
+<h2>Conclusion</h2>
+<p>
+<ul>
+  <li><strong>Switch case</strong> use thay che multiple fixed values mate</li>
+  <li><strong>Early return</strong> pattern logic ne simple ane efficient banave che</li>
+</ul>
+</p>
+<h1>JavaScript Early Return Pattern</h1>
+<p>
+  Early Return Pattern JavaScript ma function ne clean, readable ane efficient banava
+  mate use thay che.
+</p>
+<hr>
+<h2>What is Early Return?</h2>
+<p>
+  Early return etle function ma condition match thata j value return kari devi,
+  jethi baki na conditions check karva na pade.
+</p>
+<ul>
+  <li>Code short bane che</li>
+  <li>Readability vadhe che</li>
+  <li>Nested if-else avoid thay che</li>
+</ul>
+<hr>
+<h2>Wrong Logic Example</h2>
+<pre><code>
+function score(value) {
+  if (value > 90) {
+    return "Value is more than 90";
+  } else if (value < 80) {
+    return "Value is less than 80";
+  } else if (value < 70) {
+    return "Value is less than 70";
+  } else if (value < 60) {
+    return "Value is less than 60";
+  } else {
+    return "Value is less than 60";
+  }
+}
+</code></pre>
+<p>
+  <strong>Problems:</strong>
+</p>
+<ul>
+  <li><code>value &lt; 80</code> pehla check thay che</li>
+  <li><code>value &lt; 70</code> ane <code>value &lt; 60</code> kabhi reach nathi thata</li>
+  <li>Duplicate return statements che</li>
+</ul>
+<hr>
+<h2>Correct Early Return Pattern</h2>
+<pre><code>
+function score(value) {
+  if (value < 60) return "Value is less than 60";
+  if (value < 70) return "Value is less than 70";
+  if (value < 80) return "Value is less than 80";
+  if (value < 90) return "Value is less than 90";
+  return "Value is more than 90";
+}
+</code></pre>
+<p>
+  <strong>Why this is correct?</strong>
+</p>
+<ul>
+  <li>Conditions low to high order ma che</li>
+  <li>Ek condition true thay etle function turant return kare che</li>
+  <li>No unnecessary else blocks</li>
+</ul>
+<hr>
+<h2>Incorrect Early Return Example</h2>
+<pre><code>
+function score1(value) {
+  if (value > 90) return "Value is less than 90";
+  else if (value < 80) return "Value is less than 80";
+  else if (value < 70) return "Value is less than 70";
+  else if (value < 60) return "Value is less than 60";
+  else return "Value is more than 90";
+}
+</code></pre>
+<p>
+  <strong>Issues:</strong>
+</p>
+<ul>
+  <li>Wrong return message</li>
+  <li>Incorrect condition sequence</li>
+  <li>Confusing output</li>
+</ul>
+<hr>
+<h2>Rock Paper Scissors (Early Return)</h2>
+<h3>Simple Version</h3>
+<pre><code>
+function rps(user, computer) {
+  if (user === "rock" && computer === "scissor") return "user wins";
+  if (user === "scissor" && computer === "paper") return "user wins";
+  if (user === "paper" && computer === "rock") return "user wins";
+
+  if (user === "scissor" && computer === "rock") return "computer wins";
+  if (user === "rock" && computer === "paper") return "computer wins";
+  if (user === "paper" && computer === "scissor") return "computer wins";
+
+  return "It's a tie";
+}
+</code></pre>
+<hr>
+<h3>Optimized Version</h3>
+<pre><code>
+function rps2(user, computer) {
+  if (user === computer) return "It's a tie!";
+
+  if (
+    (user === "rock" && computer === "scissor") ||
+    (user === "scissor" && computer === "paper") ||
+    (user === "paper" && computer === "rock")
+  ) {
+    return "user wins";
+  }
+
+  return "computer wins";
+}
+</code></pre>
+<p>
+  <strong>Advantages:</strong>
+</p>
+<ul>
+  <li>Short and clean code</li>
+  <li>Easy to understand</li>
+  <li>Best practice for interviews</li>
+</ul>
+<hr>
+<h1>JavaScript Loops</h1>
+<p>This repository demonstrates different types of loops in JavaScript with examples.</p>
+<hr>
+<h2>For Loop</h2>
+<p>
+  Use a <b>for loop</b> when you know how many times you want to repeat a block of code.
+</p>
+<p><b>Syntax:</b></p>
+<pre><code>
+for (start; condition; change) {
+  // code
+}
+</code></pre>
+<p><b>Example: Print numbers from 1 to 10</b></p>
+<pre><code>
+for (let i = 1; i <= 10; i++) {
+  console.log(i);
+}
+</code></pre>
+<p><b>Example: Print numbers from 20 to 10</b></p>
+<pre><code>
+for (let i = 20; i >= 10; i--) {
+  console.log(i);
+}
+</code></pre>
+<hr>
+<h2>While Loop</h2>
+<p>
+  Use a <b>while loop</b> when the number of repetitions is not fixed.
+</p>
+<p><b>Syntax:</b></p>
+<pre><code>
+start;
+while (condition) {
+  // code
+  change;
+}
+</code></pre>
+<p><b>Example: Print numbers from 10 to 20</b></p>
+<pre><code>
+let j = 10;
+while (j <= 20) {
+  console.log(j);
+  j++;
+}
+</code></pre>
+<p><b>Example: Countdown from 30 to 21</b></p>
+<pre><code>
+let c = 30;
+while (c > 20) {
+  console.log(c);
+  c--;
+}
+</code></pre>
+<p><b>Example: Print "hello" 5 times</b></p>
+<pre><code>
+let i = 0;
+while (i < 5) {
+  console.log("hello");
+  i++;
+}
+</code></pre>
+<hr>
+<h2>Do While Loop</h2>
+<p>
+  A <b>do while loop</b> runs at least once even if the condition is false.
+</p>
+<p><b>Syntax:</b></p>
+<pre><code>
+do {
+  // code
+  change;
+} while (condition);
+</code></pre>
+<p><b>Example: Print numbers from 1 to 5</b></p>
+<pre><code>
+let riddhi = 1;
+do {
+  console.log(riddhi);
+  riddhi++;
+} while (riddhi <= 5);
+</code></pre>
+<p><b>Example: Print numbers from 10 to 1</b></p>
+<pre><code>
+let h = 10;
+do {
+  console.log(h);
+  h--;
+} while (h >= 1);
+</code></pre>
+<hr>
+<h2>Conclusion</h2>
+<ul>
+  <li><b>for loop</b> → when repetition count is known</li>
+  <li><b>while loop</b> → when condition-based repetition is needed</li>
+  <li><b>do while loop</b> → when code must run at least once</li>
+</ul>
+<div>
+  <h3>Example (Break)</h3>
 
   <pre><code>
-function score2(value) {
-    if (value &lt; 60) return "Value is less than 60";
-    else if (value &lt; 70) return "Value is less than 70";
-    else if (value &lt; 80) return "Value is less than 80";
-    else if (value &lt; 90) return "Value is less than 90";
-    else return "Value is more than 90";
+for (let k = 1; k <= 201; k++) {
+  console.log(k);
+  if (k === 32) {
+    break;
+  }
+}
+  </code></pre>
+
+  <p><b>Answer:</b> Prints numbers from 1 to 32.</p>
+  <p><b>Why:</b> break stops the loop when k becomes 32.</p>
+</div>
+
+<div>
+  <h3>Example (Break)</h3>
+
+  <pre><code>
+for (let m = 1; m <= 20; m++) {
+  console.log(m);
+  if (m === 15) {
+    break;
+  }
+}
+  </code></pre>
+
+  <p><b>Answer:</b> Prints numbers from 1 to 15.</p>
+  <p><b>Why:</b> break terminates the loop at 15.</p>
+</div>
+
+<div>
+  <h3>Example (Continue)</h3>
+
+  <pre><code>
+for (let a = 1; a <= 10; a++) {
+  if (a === 50) {
+    continue;
+  }
+  console.log(a);
+}
+  </code></pre>
+
+  <p><b>Answer:</b> Prints numbers from 1 to 10.</p>
+  <p><b>Why:</b> Condition is never true, so continue never runs.</p>
+</div>
+
+<div>
+  <h3>Example (Continue)</h3>
+
+  <pre><code>
+for (let a = 2; a <= 20; a++) {
+  if (a === 50) {
+    continue;
+  }
+  console.log(a);
+}
+  </code></pre>
+
+  <p><b>Answer:</b> Prints numbers from 2 to 20.</p>
+  <p><b>Why:</b> a never becomes 50, so continue is skipped.</p>
+</div>
+
+
+<div>
+  <h1>Example 1</h1>
+  <p>Print number from 1 to 10 using a for loop.</p>
+  <pre><code>
+for (let i = 1; i <= 10; i++) {
+  console.log(i);
+}
+  </code></pre>
+  <p><b>Answer:</b> Prints numbers from 1 to 10.</p>
+  <p><b>Why:</b> The loop runs 10 times starting from 1.</p>
+</div>
+<div>
+  <h1>Example 2</h1>
+  <p>Print number from 10 to 1 using while loop.</p>
+  <pre><code>
+let q = 10;
+while (q >= 1) {
+  console.log(q);
+  q--;
+}
+  </code></pre>
+  <p><b>Answer:</b> Prints numbers from 10 to 1.</p>
+  <p><b>Why:</b> q decreases by 1 on each iteration.</p>
+</div>
+<div>
+  <h1>Example 3</h1>
+  <p>Print even numbers from 1 to 20.</p>
+  <pre><code>
+for (let i = 1; i <= 20; i++) {
+  if (i % 2 === 0) {
+    console.log(i);
+  }
+}
+  </code></pre>
+  <p><b>Answer:</b> Prints all even numbers.</p>
+  <p><b>Why:</b> Even numbers are divisible by 2.</p>
+</div>
+<div>
+  <h1>Example 4</h1>
+  <p>Print odd numbers from 1 to 15.</p>
+  <pre><code>
+let i = 1;
+while (i <= 15) {
+  if (i % 2 !== 0) {
+    console.log(i);
+  }
+  i++;
+}
+  </code></pre>
+  <p><b>Answer:</b> Prints all odd numbers.</p>
+  <p><b>Why:</b> Odd numbers are not divisible by 2.</p>
+</div>
+<div>
+  <h1>Example 5</h1>
+  <p>Print multiplication table of 5.</p>
+  <pre><code>
+for (let i = 1; i <= 10; i++) {
+  console.log(`5 x ${i} = ${5 * i}`);
+}
+  </code></pre>
+  <p><b>Answer:</b> Prints table of 5.</p>
+  <p><b>Why:</b> Loop multiplies 5 with numbers 1 to 10.</p>
+</div>
+<div>
+  <h1>Example 6</h1>
+  <p>Find the sum of numbers from 1 to 100.</p>
+  <pre><code>
+let sum = 0;
+
+for (let i = 1; i <= 100; i++) {
+  sum = sum + i;
+}
+
+console.log(sum);
+  </code></pre>
+  <p><b>Answer:</b> 5050</p>
+  <p><b>Why:</b> All numbers from 1 to 100 are added.</p>
+</div>
+<div>
+  <h1>Example 7</h1>
+  <p>Print numbers between 1 to 50 divisible by 3.</p>
+  <pre><code>
+for (let i = 1; i <= 50; i++) {
+  if (i % 3 === 0) {
+    console.log(i);
+  }
+}
+  </code></pre>
+  <p><b>Answer:</b> Prints multiples of 3.</p>
+  <p><b>Why:</b> Condition checks divisibility by 3.</p>
+</div>
+<div>
+  <h1>Example 8</h1>
+  <p>Check whether numbers are even or odd up to user input.</p>
+  <pre><code>
+let num = prompt("Enter a number");
+
+for (let i = 1; i <= num; i++) {
+  if (i % 2 === 0) {
+    console.log(i + " is even");
+  } else {
+    console.log(i + " is odd");
+  }
+}
+  </code></pre>
+  <p><b>Answer:</b> Prints even or odd for each number.</p>
+  <p><b>Why:</b> Modulus operator checks remainder.</p>
+</div>
+<div>
+  <h1>Example 9</h1>
+  <p>Count numbers divisible by 3 or 5 between 1 to 100.</p>
+  <pre><code>
+let count = 0;
+
+for (let i = 1; i <= 100; i++) {
+  if (i % 3 === 0 || i % 5 === 0) {
+    count++;
+  }
+}
+
+console.log(count);
+  </code></pre>
+  <p><b>Answer:</b> Prints total count.</p>
+  <p><b>Why:</b> Logical OR checks both conditions.</p>
+</div>
+<div>
+  <h1>Example 10 (Break)</h1>
+  <p>Stop loop at first multiple of 7.</p>
+  <pre><code>
+for (let i = 1; i <= 100; i++) {
+  console.log(i);
+  if (i % 7 === 0) {
+    break;
+  }
+}
+  </code></pre>
+  <p><b>Answer:</b> Loop stops at 7.</p>
+  <p><b>Why:</b> break keyword terminates the loop.</p>
+</div>
+<div>
+  <h1>Example 11 (Continue)</h1>
+  <p>Skip multiples of 3.</p>
+  <pre><code>
+for (let i = 1; i <= 20; i++) {
+  if (i % 3 === 0) {
+    continue;
+  }
+  console.log(i);
+}
+  </code></pre>
+  <p><b>Answer:</b> Prints all except multiples of 3.</p>
+  <p><b>Why:</b> continue skips current iteration.</p>
+</div>
+<div>
+  <h1>Example 12</h1>
+  <p>Print first 5 odd numbers only.</p>
+  <pre><code>
+let count = 0;
+
+for (let i = 1; i <= 100; i++) {
+  if (i % 2 === 0) continue;
+
+  console.log(i);
+  count++;
+
+  if (count === 5) {
+    break;
+  }
+}
+  </code></pre>
+  <p><b>Answer:</b> Prints first 5 odd numbers.</p>
+  <p><b>Why:</b> Counter limits output and break stops loop.</p>
+</div>
+<h1>JavaScript Functions</h1>
+<p>
+  A function is a block of code that performs a specific task.
+</p>
+<hr>
+<h2>What is a Function?</h2>
+<p>
+  A function is a reusable block of code designed to perform a particular task.
+</p>
+<h2>Why use Functions?</h2>
+<ul>
+  <li>To avoid code repetition</li>
+  <li>To make code modular</li>
+  <li>To improve code reusability</li>
+  <li>To improve readability</li>
+</ul>
+<h2>How to create a Function?</h2>
+<p>
+  A function consists of the following parts:
+</p>
+<ul>
+  <li>Function keyword</li>
+  <li>Function name</li>
+  <li>Parameters</li>
+  <li>Function body</li>
+  <li>Return statement (optional)</li>
+</ul>
+<hr>
+<h2>Types of Functions</h2>
+<h3>Function Declaration</h3>
+<p>
+  function abc() { }
+</p>
+<h3>Arrow Function (Fat Arrow Function)</h3>
+<p>
+  let func1 = () => { }
+</p>
+<hr>
+<h2>Example: temp_cart Function</h2>
+<p>
+  This function simulates adding a product to the cart.
+</p>
+<p>
+  function temp_cart(){<br>
+  &nbsp;&nbsp;console.log("adding product")<br>
+  }
+</p>
+<p>
+  Function Calls:
+</p>
+<ul>
+  <li>temp_cart("laptop")</li>
+  <li>temp_cart("watch")</li>
+  <li>temp_cart("mobile")</li>
+</ul>
+<hr>
+<h2>Parameters vs Arguments</h2>
+<h3>Parameters</h3>
+<p>
+  Parameters are the variables listed inside the parentheses in the function definition.
+</p>
+<h3>Arguments</h3>
+<p>
+  Arguments are the actual values passed to the function when the function is called.
+</p>
+<hr>
+<h2>Example: Single Parameter Function</h2>
+<p>
+  function fullname(name){<br>
+  &nbsp;&nbsp;console.log("My Name is: " + name)<br>
+  }
+</p>
+<ul>
+  <li>fullname("riddhi")</li>
+  <li>fullname("mansi")</li>
+  <li>fullname("jinal")</li>
+</ul>
+<hr>
+<h2>Example: Multiple Parameters Function</h2>
+<p>
+  function fullname1(name, surname){<br>
+  &nbsp;&nbsp;console.log("Name: " + name + " Surname: " + surname)<br>
+  }
+</p>
+<ul>
+  <li>fullname1("riddhi", "jikadra")</li>
+  <li>fullname1("mansi", "maradiya")</li>
+  <li>fullname1("jinal", "gohil")</li>
+</ul>
+<hr>
+
+<h1>JavaScript Advanced Functions</h1>
+
+<p>
+  This document explains arrow functions, function expressions, default parameters,
+  rest parameters, early return, and first-class functions in JavaScript.
+</p>
+
+<hr>
+
+<h2>Arrow Function</h2>
+
+<p>
+  Arrow functions provide a shorter syntax to write functions.
+</p>
+
+<p>
+  let fullname2 = (name, surname) => {<br>
+  &nbsp;&nbsp;console.log("arrow function -- Name:" + name + " surname: " + surname);<br>
+  }
+</p>
+
+<p>
+  Function Call:
+</p>
+
+<p>
+  fullname2("mansi", "maradiya")
+</p>
+
+<hr>
+
+<h2>Function Expression</h2>
+
+<p>
+  A function can be stored inside a variable. This is called a function expression.
+</p>
+
+<p>
+  const fullname3 = function fullname1(name, surname) {<br>
+  &nbsp;&nbsp;console.log("function expression -- Name:" + name + " surname: " + surname);<br>
+  }
+</p>
+
+<p>
+  Function Call:
+</p>
+
+<p>
+  fullname3("jinal", "gohil")
+</p>
+
+<hr>
+
+<h2>Default Parameters</h2>
+
+<p>
+  Default parameters allow assigning default values to function parameters.
+</p>
+
+<p>
+  function abcd(b = 10, price = 0) {<br>
+  &nbsp;&nbsp;console.log(b, price);<br>
+  }
+</p>
+
+<p>
+  Function Call:
+</p>
+
+<p>
+  abcd(15)
+</p>
+
+<p>
+  Use case example: platform fee, service charges, or fixed fees.
+</p>
+
+<hr>
+
+<h2>Rest Parameters</h2>
+
+<p>
+  Rest parameters are used when we do not know how many arguments will be passed.
+  They collect multiple arguments into an array.
+</p>
+
+<p>
+  function def1(...name) {<br>
+  &nbsp;&nbsp;console.log(name);<br>
+  }
+</p>
+
+<p>
+  Function Call:
+</p>
+
+<p>
+  def1("mansi", "jinal", "riddhi")
+</p>
+
+<p>
+  Rest parameters can also be used with normal parameters.
+</p>
+
+<p>
+  function def1(a, ...name) {<br>
+  &nbsp;&nbsp;console.log(a, name);<br>
+  }
+</p>
+
+<p>
+  Function Call:
+</p>
+
+<p>
+  def1("mansi", "jinal", "riddhi")
+</p>
+
+<hr>
+
+<h2>Early Return</h2>
+<p>
+  Early return is used to exit a function as soon as a condition is met.
+</p>
+<p>
+  function score1(value) {<br>
+  &nbsp;&nbsp;if (value &gt; 90) return "Value is less than 90";<br>
+  &nbsp;&nbsp;else if (value &lt; 80) return "Value is less than 80";<br>
+  &nbsp;&nbsp;else if (value &lt; 70) return "Value is less than 70";<br>
+  &nbsp;&nbsp;else if (value &lt; 60) return "Value is less than 60";<br>
+  &nbsp;&nbsp;else return "Value is more than 90";<br>
+  }
+</p>
+<p>
+  Example:
+</p>
+<p>
+  let result = score1(80)
+</p>
+<hr>
+<h2>First-Class Functions</h2>
+<p>
+  In JavaScript, functions are treated as first-class citizens.
+  This means functions can be stored in variables, passed as arguments,
+  and returned from other functions.
+</p>
+<h3>Function Stored in a Variable</h3>
+<p>
+  const cart3 = function(product, price) {<br>
+  &nbsp;&nbsp;console.log("Adding " + product + " at " + price);<br>
+  }
+</p>
+<p>
+  cart3("function expression - s25", 45000)
+</p>
+<hr>
+<h3>Function Passed as an Argument</h3>
+<p>
+  function temp_b(fnc) {<br>
+  &nbsp;&nbsp;fnc();<br>
+  }
+</p>
+<p>
+  temp_b(function fnc2() {<br>
+  &nbsp;&nbsp;console.log("First Class Function");<br>
+  })
+</p>
+<hr>
+<h3>Function Returned from Another Function</h3>
+<p>
+  function abcd() {<br>
+  &nbsp;&nbsp;return function() {<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;console.log("function return other function");<br>
+  &nbsp;&nbsp;};<br>
+  }
+</p>
+<p>
+  Function Call:
+</p>
+<p>
+  abcd()();
+</p>
+<hr>
+<p><b>End of JavaScript Functions Documentation</b></p>
+<h2>Higher-Order Functions (HOF)</h2>
+
+<p>
+  A higher-order function is a function that either:
+<ul>
+  <li>Takes another function as an argument</li>
+  <li>Returns a function as a result</li>
+</ul>
+These functions allow more flexible and reusable code.
+</p>
+
+<h3>Example: Passing a Function as an Argument</h3>
+
+<p>
+  A higher-order function can accept a function as a parameter:
+</p>
+
+<pre><code>
+function abcd(val) {
+    val(); // call the function passed as argument
+}
+abcd(function() {
+    console.log("Hello from argument function");
+});
+</code></pre>
+
+<h3>Example: Returning a Function</h3>
+<p>
+  A higher-order function can return another function:
+</p>
+<pre><code>
+function abcd() {
+    return function() {
+        console.log("Hello from returned function");
+    };
+}
+abcd()(); // call the returned function
+</code></pre>
+
+# 📘 JavaScript Advanced Functions
+
+<hr>
+
+<h2>✅ Pure vs Impure Function</h2>
+
+<h3>🟢 Pure Function</h3>
+<p>
+Pure function same input par same output aape chhe  
+ane <b>bahar na state ne modify nathi karto</b>.
+</p>
+
+<pre><code>
+let a = 10;
+
+function abcd_pure() {
+    console.log("hello");
+}
+</code></pre>
+
+<h3>🔴 Impure Function</h3>
+<p>
+Impure function bahar na variable ne modify kare chhe  
+athva same input par different output aape chhe.
+</p>
+
+<pre><code>
+function abcd_impure() {
+    a++;
+    console.log(a);
 }
 </code></pre>
 
 <hr>
 
-<h2>🎮 Rock Paper Scissors Game</h2>
+<h2>🔐 Closure Function</h2>
+
+<p>
+Closure function evi function chhe je  
+potana <b>parent function na variables ne access</b> kari shake.
+</p>
 
 <pre><code>
-function rps(user, computer) {
-    if (user === computer) return "it's a tie";
+function outer() {
+    let count = 0;
 
-    if (user === "rock" && computer === "scissor") return "user wins";
-    if (user === "scissor" && computer === "paper") return "user wins";
-    if (user === "paper" && computer === "rock") return "user wins";
+    function inner(){
+        count++; // accessing parent variable
+        console.log(count);
+    }
 
-    return "computer wins";
+    return inner;
 }
+
+let fnc = outer();
+fnc();
+</code></pre>
+
+<hr>
+
+<h2>📚 Lexical Scope</h2>
+
+<p>
+Lexical scope ma <b>nested functions</b>  
+potana outer function na variables ne access kari shake.
+</p>
+
+<pre><code>
+function outer1() {
+    let outer_var = "outer function variable";
+
+    function inner1() {
+        let inner_var = "inner function variable";
+        console.log(outer_var);
+
+        function most_inner(){
+            console.log(inner_var);
+            console.log(outer_var);
+
+            let most_inner_var = "most_inner variable function";
+
+            function abc() {
+                console.log(most_inner_var);
+                console.log(inner_var);
+                console.log(outer_var);
+            }
+
+            abc();
+        }
+
+        most_inner();
+    }
+
+    inner1();
+}
+
+outer1();
+</code></pre>
+
+<hr>
+
+<h2>🧪 Lexical Scope Example</h2>
+
+<pre><code>
+function mansi() {
+    let mansi_var = "mansi";
+
+    function riddhi() {
+        let riddhi_var = "riddhi";
+        console.log(mansi_var);
+
+        function jinal() {
+            console.log(riddhi_var);
+        }
+
+        jinal();
+    }
+
+    riddhi();
+}
+
+mansi();
+</code></pre>
+
+<hr>
+
+<h2>⚡ IIFE (Immediately Invoked Function Expression)</h2>
+
+<p>
+IIFE e function chhe je  
+<b>declare thata sathej call thai jaye</b>.
+</p>
+
+<pre><code>
+(function () {})();
+
+(function () {
+    console.log("this is IIFE function")
+}());
+</code></pre>
+
+<hr>
+
+<h2>⬆️ Hoisting in Function</h2>
+
+<p>
+Function declaration hoisting support kare chhe.
+</p>
+
+<pre><code>
+abcde();
+
+function abcde() {
+    console.log("this is hoisting function");
+}
+</code></pre>
+
+<h3>❌ Function Expression & Arrow Function (Not Hoisted)</h3>
+
+<pre><code>
+// hoistedfunction1();
+// let hoistedfunction1 = function () {
+//     console.log("hoisted function express called");
+// }
+
+// hoistedfunction2();
+// let hoistedfunction2 = () => {
+//     console.log("hoisted arrow function called");
+// }
 </code></pre>
 
 <hr>
 
 <footer>
-    <p><strong>Author:</strong> JavaScript Learner</p>
-    <p><strong>Purpose:</strong> Practice & Learning</p>
+  <p>📌 JavaScript Concepts: Pure, Closure, Lexical Scope, IIFE & Hoisting</p>
 </footer>
-</section>
-</main>
 
-<h1>JavaScript Loops</h1>
-<h2>For Loop</h2>
-<pre><code>
-// loops -- repeating code blocks
-// 1 2 3 4 5 6
+<hr>
+<h1>Function Examples</h1>
+<div>
+  <h1> Example 1: </h1>
+  <p>What's the difference between function declaration and function expression in terms of hoisting?</p>
+  <p>
+    <b>Answer:</b> Function declaration ma function declare pehla pan call thai sake,
+    pan function expression ma function declare karta pehla call kariye to error aave.
+  </p>
+</div>
 
-// for loop
-// why use for loop? when you know how many times you want to repeat a block
-//print 1 to 10--> console.log(1); console.log(2); console.log(10);
-// kaya thi javanu chhe --> kaya sudhi javanu chhe --> kevi rite javanu chhe
-// for (ex. 150 increment by 1)
-//(start; end; change)
+<div>
+  <h1> Example 2: </h1>
+  <pre><code>
+greet();
 
-for (let i = 1; i <= 10; i++) {
-    console.log(i);
+function greet() {
+  console.log("Hello!");
+}
+  </code></pre>
+  <p><b>Answer:</b> "Hello!" print thase.</p>
+  <p><b>Why:</b> Function declaration hoisted hoy che, etle declaration pehla call thai sake.</p>
+</div>
+
+<div>
+  <h1> Example 3: </h1>
+  <p>Convert normal function to Arrow Function</p>
+  <pre><code>
+function add(a, b) {
+  return a + b;
+}
+  </code></pre>
+
+  <p><b>Answer:</b></p>
+  <pre><code>
+let add = (a, b) => a + b;
+
+add(5, 23);
+  </code></pre>
+</div>
+
+<div>
+  <h1> Example 4: </h1>
+  <p>Identify what is parameters and what is arguments</p>
+  <pre><code>
+function welcome(name) {
+  console.log("Welcome " + name);
 }
 
-for (let i = 20; i >= 10; i--) {
-    console.log(i);
-}
-</code></pre>
+welcome("user");
+  </code></pre>
+  <p><b>Answer:</b> <code>name</code> is parameter and <code>"user"</code> is argument.</p>
+  <p>
+    <b>Why:</b> Parameter function declaration time aave,
+    ane argument function call time pass thay.
+  </p>
+</div>
 
-<h2>While Loop</h2>
-<pre><code>
-// while loop do while loop
-// kaya thi javanu chhe --> Kaya rokavanu chhe --> Kevi rite javanu chhe
-// while (ex. 1> Hello world -> stop when condition false)
-
-let j = 10;
-while (j <= 20) {
-    console.log("j:", j);
-    j++;
-}
-
-let k = 10;
-while (k <= 20) {
-    console.log(k);
-    k++;
+<div>
+  <h1> Example 5: </h1>
+  <p>How many parameters and arguments?</p>
+  <pre><code>
+function temp(a, b, c) {
+  console.log(a, b, c);
 }
 
-let a = 0;
-while (a <= 5) { 
-    console.log(a); 
-    a++;
+temp(1, 2);
+  </code></pre>
+  <p><b>Answer:</b> Parameters = 3 (a, b, c) and Arguments = 2 (1, 2).</p>
+</div>
+
+<div>
+  <h1> Example 6: </h1>
+  <p>Predict the output</p>
+  <pre><code>
+function temp_user(name = "Guest") {
+  console.log("Hello " + name);
 }
 
-let c = 30;
-while (c > 20) { 
-    console.log(c); 
-    c--;
+temp_user();
+  </code></pre>
+  <p><b>Answer:</b> Hello Guest</p>
+  <p>
+    <b>Why:</b> Default parameter value "Guest" use thay che
+    jyare argument pass na kariye.
+  </p>
+</div>
+
+<div>
+  <h1> Example 7: </h1>
+  <p>What is the <code>...</code> operator and why use it in function?</p>
+  <pre><code>
+function number(...numbers) {
+  console.log(numbers);
 }
 
-let d = "Hello"; 
-let i = 0;
-while (i < 5) { 
-    console.log(d); 
-    i++;
+number(1, 2, 3, 4, 5);
+  </code></pre>
+  <p><b>Answer:</b> [1, 2, 3, 4, 5]</p>
+  <p>
+    <b>Why:</b> Rest operator multiple arguments ne ek array ma convert kare,
+    etle vadhare parameters handle kari sakiye.
+  </p>
+</div>
+
+<div>
+  <h1> Example 8: </h1>
+  <p>Use rest parameters to accept any number of scores and return the total</p>
+  <pre><code>
+function calculateTotal(...scores) {
+  let total = 0;
+  for (let i = 0; i <= scores.length; i++) {
+    total += scores[i];
+  }
+  return total;
 }
 
-let f = 50;
-while (f <= 60) { 
-    console.log(f); 
-    f++;
+function calculateTotalCorrect(...scores) {
+  let total = 0;
+  scores.forEach(function (val) {
+    total += val;
+  });
+  return total;
 }
 
-let q = 60;
-while (q >= 50) {
-    console.log(q);
-    q--;
+calculateTotal(10, 20, 30, 40, 50);
+let sumtotal = calculateTotalCorrect(10, 20, 30, 40, 50);
+  </code></pre>
+  <p><b>Ans / Err:</b> Error (NaN)</p>
+  <p>
+    <b>Why:</b> <code>i &lt;= scores.length</code> thi undefined value access thay che,
+    je NaN result aape che.
+  </p>
+</div>
+
+<div>
+  <h1> Example 9: </h1>
+  <p>Fix the function using early return</p>
+  <pre><code>
+function checkAge(age) {
+  if (age < 18) {
+    console.log("Too Young");
+    return;
+  }
+  console.log("Access Granted");
 }
-</code></pre>
+  </code></pre>
+  <p><b>Answer:</b> Early return use kari function clean banavi.</p>
+</div>
 
-<h2>Do While Loop</h2>
-<pre><code>
-// do while loop
-// do {} while (end);
+<div>
+  <h1> Example 10: </h1>
+  <p>What is the return value of below function?</p>
+  <pre><code>
+function f() {
+  return;
+}
+  </code></pre>
+  <p><b>Answer:</b> <code>undefined</code></p>
+  <p><b>Why:</b> Return statement value vagar hoy to JavaScript <code>undefined</code> return kare.</p>
+</div>
 
-let n = 5;
-do {
-    console.log("n:", n);
-    n++;
-} while (n <= 10);
 
-let g = 10;
-do {
-    console.log("do while:", g);
-    g++;
-} while (g <= 20);
+<div>
+  <h1> Example 11: </h1>
+  <p>What does it mean when we say "functions are first-class citizens"?</p>
+  <p><b>Ans:</b> Functions are treated like normal variables.</p>
+  <p><b>Why:</b> They can be assigned, passed, and returned.</p>
+</div>
 
-let h = 10;
-do {
-    console.log("do while:", h);
-    h--;
-} while (h >= 1);
-</code></pre>
+<div>
+  <h1> Example 12: </h1>
+  <p>Can you assign a function to a variable and call it?</p>
+  <pre><code>
+let a = function () {
+  console.log("Hello");
+};
+a();
+  </code></pre>
+  <p><b>Ans:</b> Yes.</p>
+  <p><b>Why:</b> Functions can be stored in variables.</p>
+</div>
 
+<div>
+  <h1> Example 13: </h1>
+  <p>Pass a function into another function and execute it.</p>
+  <pre><code>
+function abcd(val) {
+  val();
+}
+
+abcd(function () {
+  console.log("Hello");
+});
+  </code></pre>
+  <p><b>Ans:</b> Executes successfully.</p>
+  <p><b>Why:</b> Functions can be passed as arguments.</p>
+</div>
+
+<div>
+  <h1> Example 14: </h1>
+  <p>What is a higher-order function?</p>
+  <p><b>Ans:</b> A function that takes or returns another function.</p>
+  <p><b>Why:</b> It works with functions as values.</p>
+</div>
+
+<div>
+  <h1> Example 15: </h1>
+  <p>Identify the higher-order function.</p>
+  <pre><code>
+[1, 2, 3].map(function (x) {
+  return x * 2;
+});
+  </code></pre>
+  <p><b>Ans:</b> <code>map()</code>.</p>
+  <p><b>Why:</b> It accepts a function as an argument.</p>
+</div>
+
+<div>
+  <h1> Example 16: </h1>
+  <p>Pure or impure function?</p>
+  <pre><code>
+let total = 5;
+
+function num(num) {
+  total += num;
+}
+
+num(3);
+  </code></pre>
+  <p><b>Ans:</b> Impure function.</p>
+  <p><b>Why:</b> It modifies an external variable.</p>
+</div>
+
+<div>
+  <h1> Example 17: </h1>
+  <p>Convert example 16 into a pure function.</p>
+  <pre><code>
+function num(total, num) {
+  return total + num;
+}
+
+num(5, 3);
+  </code></pre>
+  <p><b>Ans:</b> Pure function.</p>
+  <p><b>Why:</b> Output depends only on inputs.</p>
+</div>
+
+<div>
+  <h1> Example 18: </h1>
+  <p>What is Closure? When is it created?</p>
+  <pre><code>
+function outer() {
+  let x = 10;
+  return function () {
+    console.log(x);
+  };
+}
+  </code></pre>
+  <p><b>Ans:</b> Closure remembers outer variables.</p>
+  <p><b>Why:</b> Created when inner function accesses outer scope.</p>
+</div>
+
+<div>
+  <h1> Example 19: </h1>
+  <p>What's logged?</p>
+  <pre><code>
+function outer() {
+  let count = 0;
+  return function () {
+    count++;
+    console.log(count);
+  };
+}
+
+const counter = outer();
+counter();
+counter();
+  </code></pre>
+  <p><b>Ans:</b> 1 then 2.</p>
+  <p><b>Err:</b> No error.</p>
+  <p><b>Why:</b> Closure preserves <code>count</code>.</p>
+</div>
+
+<div>
+  <h1> Example 20: </h1>
+  <p>Convert into an IIFE.</p>
+  <pre><code>
+(function () {
+  console.log("Initialized");
+})();
+  </code></pre>
+  <p><b>Ans:</b> Executes immediately.</p>
+  <p><b>Why:</b> IIFE runs as soon as it’s defined.</p>
+</div>
+
+<div>
+  <h1> Example 21: </h1>
+  <p>Use of IIFE with real-world example.</p>
+  <pre><code>
+let fun = (function () {
+  let score = 0;
+
+  return {
+    getScore: function () {
+      console.log(score);
+    },
+    setScore: function (val) {
+      score = val;
+    }
+  };
+})();
+  </code></pre>
+  <p><b>Ans:</b> Data privacy.</p>
+  <p><b>Why:</b> Creates private variables using closure.</p>
+</div>
+
+<div>
+  <h1> Example 22: </h1>
+  <p>What will be the output?</p>
+  <pre><code>
+temp_var();
+
+var temp_var = function () {
+  console.log("Hello");
+};
+  </code></pre>
+  <p><b>Ans:</b> Error (TypeError).</p>
+  <p><b>Why:</b> Function expressions are not hoisted.</p>
+</div>
+
+<div>
+  <h1> Example 23: </h1>
+  <p>What will be the output?</p>
+  <pre><code>
+temp_var();
+
+function temp_var() {
+  console.log("Hello");
+}
+  </code></pre>
+  <p><b>Ans:</b> Hello.</p>
+  <p><b>Why:</b> Function declarations are hoisted.</p>
+</div>

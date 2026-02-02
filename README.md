@@ -1944,7 +1944,7 @@ function f() {
 let a1 = function () {
   console.log("Hello");
 };
-a1();
+a1s();
   </code></pre>
   <p><b>Ans:</b> Yes.</p>
   <p><b>Why:</b> Functions can be stored in variables.</p>
@@ -2111,4 +2111,3 @@ function temp_var() {
   <p><b>Ans:</b> Hello.</p>
   <p><b>Why:</b> Function declarations are hoisted.</p>
 </div>
-

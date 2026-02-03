@@ -2111,3 +2111,376 @@ function temp_var() {
   <p><b>Ans:</b> Hello.</p>
   <p><b>Why:</b> Function declarations are hoisted.</p>
 </div>
+<hr>
+
+<h1>JavaScript Arrays</h1>
+
+<p>Array example:</p>
+
+<pre>
+[1, 2, 3, 4, 5]
+["hello", "a", "b", "c"]
+[2, "bye", "hello", 50]
+</pre>
+
+<hr>
+
+<h2>Create an Array</h2>
+
+<pre>
+let arr = [1, 2, 3, 4];
+</pre>
+
+<hr>
+
+<h2>Access Array Elements</h2>
+
+<p>
+Array index <strong>0</strong> thi start thay chhe.
+</p>
+
+<pre>
+arr[0]  // first element
+arr[2]  // third element
+arr[10] // undefined
+</pre>
+
+<hr>
+
+<h2>Modify Array Elements</h2>
+
+<pre>
+arr[0] = 10;
+</pre>
+
+<hr>
+
+<h2>Array Methods</h2>
+
+<p>
+JavaScript ma array sathe kaam karva mate different built-in methods chhe:
+</p>
+
+<ul>
+  <li>push</li>
+  <li>pop</li>
+  <li>shift</li>
+  <li>unshift</li>
+  <li>splice</li>
+  <li>slice</li>
+  <li>reverse</li>
+  <li>sort</li>
+</ul>
+
+<hr>
+
+<h2>push() – Add Value at Last</h2>
+
+<pre>
+let shoes_product = ["Skechers", "Puma", "Adidas"];
+shoes_product.push("Nike");
+</pre>
+
+<p><strong>Use case:</strong> Existing product list ma new product add karva.</p>
+
+<hr>
+
+<h2>pop() – Remove Last Value</h2>
+
+<pre>
+shoes_product.pop();
+</pre>
+
+<p><strong>Use case:</strong> Last add karelo product remove karva.</p>
+
+<hr>
+
+<h2>shift() – Remove First Value</h2>
+
+<pre>
+shoes_product.shift();
+</pre>
+
+<hr>
+
+<h2>unshift() – Add Value at First</h2>
+
+<pre>
+shoes_product.unshift("Asics");
+</pre>
+
+<p><strong>Use case:</strong> New data ne top par add karva.</p>
+
+<hr>
+
+<h2>splice() – Remove Specific Values</h2>
+
+<pre>
+let e = [50, 60, 30, 40, 10];
+e.splice(3, 2);
+</pre>
+
+<p>
+<strong>Explanation:</strong>  
+Index 3 thi start kari ne 2 values remove karse.
+</p>
+
+<p><strong>Use case:</strong> Multiple messages ya records ek saathe delete karva.</p>
+
+<hr>
+
+<h2>slice() – Copy Values</h2>
+
+<pre>
+let f = [100, 50, 25, 0];
+let new_f = f.slice(1, 3);
+</pre>
+
+<p>
+<strong>Note:</strong><br>
+Start index include thay chhe<br>
+End index include thato nathi
+</p>
+
+<p><strong>Use case:</strong> Specific data copy kari ne report generate karva.</p>
+
+<hr>
+
+<h2>splice() vs slice()</h2>
+
+<table border="1" cellpadding="5">
+  <tr>
+    <th>splice()</th>
+    <th>slice()</th>
+  </tr>
+  <tr>
+    <td>Main array ne modify kare chhe</td>
+    <td>Main array ne modify karto nathi</td>
+  </tr>
+  <tr>
+    <td>Values remove/add kari shake</td>
+    <td>Only copy kare</td>
+  </tr>
+</table>
+
+<hr>
+
+<h2>reverse() – Reverse Array</h2>
+
+<pre>
+let g = [25, 30, 35, 40, 85];
+g.reverse();
+</pre>
+
+<p><strong>Use case:</strong> Latest data ne first show karva (frontend).</p>
+
+<hr>
+
+<h2>sort() – Ascending Order</h2>
+
+<pre>
+let h = [50, 20, 80, 10, 40];
+h.sort();
+</pre>
+<h3>Numeric Sort (Proper Way)</h3>
+<pre>
+let b = [11, 62, 3, 4, 25];
+b.sort(function(a, b) {
+  return a - b;
+});
+</pre>
+</pre>
+
+<h2>Array example</h2>
+<hr>
+
+<div>
+  <h3>Q1. push()</h3>
+  <p><b>Task:</b> Add 'Buy milk'</p>
+  <pre><code>
+tasks.push('Buy milk');
+  </code></pre>
+  <p><b>Answer:</b> ['Wake up', 'Brush teeth', 'Buy milk']</p>
+  <p><b>Why:</b> <code>push()</code> array ના end માં value add કરે છે.</p>
+</div>
+
+<div>
+  <h3>Q2. pop()</h3>
+  <pre><code>
+notifications.pop();
+  </code></pre>
+  <p><b>Answer:</b> ['Email', 'Message']</p>
+  <p><b>Why:</b> <code>pop()</code> last element remove કરે છે.</p>
+</div>
+
+<div>
+  <h3>Q3. shift()</h3>
+  <pre><code>
+customers.shift();
+  </code></pre>
+  <p><b>Answer:</b> ['Customer2', 'Customer3']</p>
+  <p><b>Why:</b> <code>shift()</code> first element remove કરે છે.</p>
+</div>
+
+<div>
+  <h3>Q4. unshift()</h3>
+  <pre><code>
+playlist.unshift('Song A');
+  </code></pre>
+  <p><b>Answer:</b> ['Song A', 'Song B', 'Song C']</p>
+  <p><b>Why:</b> <code>unshift()</code> start માં value add કરે છે.</p>
+</div>
+
+<div>
+  <h3>Q5. splice()</h3>
+  <pre><code>
+students.splice(1, 1, 'John', 'Sara');
+  </code></pre>
+  <p><b>Answer:</b> ['Mike', 'John', 'Sara', 'Emma', 'Sophia']</p>
+  <p><b>Why:</b> <code>splice()</code> remove + add both કરી શકે છે.</p>
+</div>
+
+<div>
+  <h3>Q6. splice()</h3>
+  <pre><code>
+menu.splice(1, 2);
+  </code></pre>
+  <p><b>Answer:</b> ['Burger', 'Salad']</p>
+  <p><b>Why:</b> index 1 થી 2 items remove થયા.</p>
+</div>
+
+<div>
+  <h3>Q7. slice()</h3>
+  <pre><code>
+days.slice(5);
+  </code></pre>
+  <p><b>Answer:</b> ['Saturday', 'Sunday']</p>
+  <p><b>Why:</b> <code>slice()</code> new array બનાવે છે.</p>
+</div>
+
+<div>
+  <h3>Q8. reverse()</h3>
+  <pre><code>
+levels.reverse();
+  </code></pre>
+  <p><b>Answer:</b> ['Hard', 'Medium', 'Easy']</p>
+  <p><b>Why:</b> Array order reverse થાય છે.</p>
+</div>
+
+<div>
+  <h3>Q9. sort()</h3>
+  <pre><code>
+scores.sort((a,b) => a-b);
+  </code></pre>
+  <p><b>Answer:</b> [12, 34, 45, 78, 89]</p>
+  <p><b>Why:</b> Comparator વગર numbers wrong sort થાય.</p>
+</div>
+
+<div>
+  <h3>Q10. sort() numbers</h3>
+  <pre><code>
+prices.sort((a,b) => a-b);
+  </code></pre>
+  <p><b>Answer:</b> [49, 149, 199, 299, 999]</p>
+</div>
+
+<div>
+  <h3>Q11. slice() vs splice()</h3>
+  <pre><code>
+products.slice(0, 3);
+  </code></pre>
+  <p><b>Answer:</b> ['Laptop', 'Phone', 'Tablet']</p>
+  <p><b>Why:</b> Original array change થતો નથી.</p>
+</div>
+
+<div>
+  <h3>Q12. splice() complex</h3>
+  <pre><code>
+colors.splice(2, 1, 'Purple', 'Orange');
+  </code></pre>
+  <p><b>Answer:</b> ['Red','Green','Purple','Orange','Yellow']</p>
+</div>
+
+<div>
+  <h3>Q13. reverse() + push()</h3>
+  <pre><code>
+steps.reverse();
+steps.push('Final Step');
+  </code></pre>
+  <p><b>Answer:</b> ['Step 3','Step 2','Step 1','Final Step']</p>
+</div>
+
+<div>
+  <h3>Q14. sort() ignore case</h3>
+  <pre><code>
+names.sort((a,b)=>a.toLowerCase().localeCompare(b.toLowerCase()));
+  </code></pre>
+  <p><b>Answer:</b> ['alice','Bob','charlie','David']</p>
+</div>
+
+<div>
+  <h3>Q15. Combination</h3>
+  <pre><code>
+movies.push('Inception');
+movies.shift();
+movies.sort();
+  </code></pre>
+  <p><b>Answer:</b> ['Gladiator','Inception','Titanic']</p>
+</div>
+
+<div>
+  <h3>Q16. splice() return value</h3>
+  <p><b>Answer:</b> Removed elements return થાય છે.</p>
+</div>
+
+<div>
+  <h3>Q17. slice() immutability</h3>
+  <p><b>Answer:</b> Original array change થતો નથી.</p>
+</div>
+
+<div>
+  <h3>Q18. sort() unexpected</h3>
+  <p><b>Answer:</b> Default sort strings પ્રમાણે compare કરે છે.</p>
+</div>
+
+<div>
+  <h3>Q19. reverse() mutation</h3>
+  <p><b>Answer:</b> Same array reference modify થાય છે.</p>
+</div>
+
+<div>
+  <h3>Q20. push() vs unshift()</h3>
+  <p><b>Answer:</b> <code>unshift()</code> expensive છે કારણ કે index shift થાય છે.</p>
+</div>
+
+<div>
+  <h3>Q21. splice() deleteCount = 0</h3>
+  <p><b>Answer:</b> No removal, only insertion.</p>
+</div>
+
+<div>
+  <h3>Q22. sort() strings</h3>
+  <p><b>Answer:</b> ['1','10','2']</p>
+</div>
+
+<div>
+  <h3>Q23. slice() negative index</h3>
+  <p><b>Answer:</b> [300, 400]</p>
+</div>
+
+<div>
+  <h3>Q24. splice vs slice</h3>
+  <ul>
+    <li>a) Update original → <code>splice()</code></li>
+    <li>b) Keep unchanged → <code>slice()</code></li>
+  </ul>
+</div>
+
+<div>
+  <h3>Q25. Chained methods</h3>
+  <pre><code>
+arr2.push(arr2.shift());
+  </code></pre>
+  <p><b>Answer:</b> [2, 3, 1]</p>
+  <p><b>Why:</b> First element end માં push થયો.</p>
+</div>

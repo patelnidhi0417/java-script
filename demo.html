@@ -1589,58 +1589,73 @@ function abcd() {
 }
 abcd()(); // call the returned function
 </code></pre>
+<hr><hr>
+<h1>JavaScript Functions & Scope Examples</h1>
 
-# 📘 JavaScript Advanced Functions
+<h2>1. Pure vs Impure Function</h2>
 
-<hr>
-
-<h2>✅ Pure vs Impure Function</h2>
-
-<h3>🟢 Pure Function</h3>
+<h3>Pure Function</h3>
 <p>
-Pure function same input par same output aape chhe  
-ane <b>bahar na state ne modify nathi karto</b>.
+  Pure function aevo function hoy chhe je:
 </p>
+<ul>
+  <li>Same input par hamesha same output aape</li>
+  <li>Koi pan <b>bahar na variable / state ne modify</b> na kare</li>
+</ul>
 
 <pre><code>
+// Pure Function
 let a = 10;
 
 function abcd_pure() {
-    console.log("hello");
+    console.log("Hello");
 }
 </code></pre>
 
-<h3>🔴 Impure Function</h3>
+<p><b>Explanation:</b> Aa function koi external variable change karto nathi,
+etle aa <b>pure function</b> chhe.</p>
+
+<hr>
+
+<h3>Impure Function</h3>
 <p>
-Impure function bahar na variable ne modify kare chhe  
-athva same input par different output aape chhe.
+  Impure function aevo hoy chhe je:
 </p>
+<ul>
+  <li>External state ne modify kare</li>
+  <li>Same input par different output aapi shake</li>
+</ul>
 
 <pre><code>
+// Impure Function
 function abcd_impure() {
     a++;
     console.log(a);
 }
 </code></pre>
 
+<p>
+  <b>Explanation:</b> Aa function bahar declare karel <code>a</code> variable ne
+change kare chhe, etle aa <b>impure function</b> chhe.
+</p>
+
 <hr>
 
-<h2>🔐 Closure Function</h2>
-
+<h2>2. Closure Function</h2>
 <p>
-Closure function evi function chhe je  
-potana <b>parent function na variables ne access</b> kari shake.
+  Closure function aevo function hoy chhe je potana
+<b>parent function na variables ne access</b> kari shake,
+even parent function execute thai gaya pachi pan.
 </p>
 
 <pre><code>
 function outer() {
     let count = 0;
 
-    function inner(){
-        count++; // accessing parent variable
+    function inner() {
+        count++;
         console.log(count);
     }
-
     return inner;
 }
 
@@ -1648,14 +1663,46 @@ let fnc = outer();
 fnc();
 </code></pre>
 
+<p>
+  <b>Explanation:</b> <code>inner()</code> function,
+<code>outer()</code> function na <code>count</code> variable ne
+access kare chhe — aa closure nu example chhe.
+</p>
+
 <hr>
 
-<h2>📚 Lexical Scope</h2>
+<h3>Another Closure Example</h3>
+
+<pre><code>
+function riddhi() {
+    let a1 = "mansi";
+
+    function nidhi() {
+        a1 += " jinal";
+        console.log(a1);
+    }
+    return nidhi;
+}
+
+let fnc1 = riddhi();
+fnc1();
+</code></pre>
 
 <p>
-Lexical scope ma <b>nested functions</b>  
-potana outer function na variables ne access kari shake.
+  <b>Explanation:</b> <code>nidhi()</code> function
+<code>riddhi()</code> function na variable <code>a1</code> ne
+modify kare chhe, etle aa pan closure chhe.
 </p>
+
+<hr>
+
+<h2>3. Lexical Scope</h2>
+<p>
+  Lexical scope no matlab chhe ke
+<b>nested function potana outer function na variables ne access kari shake</b>.
+</p>
+
+<h3>Example 1</h3>
 
 <pre><code>
 function outer1() {
@@ -1665,110 +1712,124 @@ function outer1() {
         let inner_var = "inner function variable";
         console.log(outer_var);
 
-        function most_inner(){
+        function most_inner() {
             console.log(inner_var);
             console.log(outer_var);
 
-            let most_inner_var = "most_inner variable function";
-
+            let most_inner_var = "most inner function variable";
             function abc() {
                 console.log(most_inner_var);
                 console.log(inner_var);
                 console.log(outer_var);
             }
-
             abc();
         }
-
         most_inner();
     }
-
     inner1();
 }
-
 outer1();
 </code></pre>
 
+<p>
+  <b>Explanation:</b> Andar na function,
+bahar na badha variables ne access kari shake chhe —
+aa lexical scope chhe.
+</p>
+
 <hr>
 
-<h2>🧪 Lexical Scope Example</h2>
+<h3>Example 2</h3>
 
 <pre><code>
-function mansi() {
-    let mansi_var = "mansi";
+function clg() {
+    let faculty = "abcd";
 
-    function riddhi() {
-        let riddhi_var = "riddhi";
-        console.log(mansi_var);
+    function fac() {
+        let student = "student abcd";
+        console.log(faculty);
 
-        function jinal() {
-            console.log(riddhi_var);
+        function dumb_student() {
+            console.log(student);
+            console.log(faculty);
         }
-
-        jinal();
+        dumb_student();
     }
-
-    riddhi();
+    fac();
 }
-
-mansi();
+clg();
 </code></pre>
+
+<p>
+  <b>Explanation:</b> <code>dumb_student()</code>
+function parent ane grandparent banne na variables access kare chhe.
+</p>
 
 <hr>
 
-<h2>⚡ IIFE (Immediately Invoked Function Expression)</h2>
-
+<h2>4. IIFE (Immediately Invoked Function Expression)</h2>
 <p>
-IIFE e function chhe je  
-<b>declare thata sathej call thai jaye</b>.
+  IIFE aevo function hoy chhe je
+<b>define karta j execute thai jai</b>.
 </p>
 
 <pre><code>
-(function () {})();
+(function () { })();
+</code></pre>
 
+<pre><code>
 (function () {
-    console.log("this is IIFE function")
+    console.log("This Is IIFE Function");
 }());
 </code></pre>
 
+<p>
+  <b>Use:</b> Global scope pollution avoid karva mate.
+</p>
+
 <hr>
 
-<h2>⬆️ Hoisting in Function</h2>
-
+<h2>5. Hoisting in Function</h2>
 <p>
-Function declaration hoisting support kare chhe.
+  Hoisting ma function ni declaration
+<b>execution pehla memory ma load</b> thai jai chhe.
 </p>
 
 <pre><code>
 abcde();
 
 function abcde() {
-    console.log("this is hoisting function");
+    console.log("This is hoisting function");
 }
 </code></pre>
 
-<h3>❌ Function Expression & Arrow Function (Not Hoisted)</h3>
+<p>
+  <b>Explanation:</b> Normal function declaration hoisted hoy chhe,
+etle function call declaration pehla pan work kare chhe.
+</p>
+
+<hr>
+
+<h3>Function Expression & Arrow Function (Not Hoisted)</h3>
 
 <pre><code>
-// hoistedfunction1();
-// let hoistedfunction1 = function () {
-//     console.log("hoisted function express called");
+// hostedFunction1();
+// let hostedFunction1 = function() {
+//     console.log("Function Expression");
 // }
 
-// hoistedfunction2();
-// let hoistedfunction2 = () => {
-//     console.log("hoisted arrow function called");
+// hostedFunction2();
+// let hostedFunction2 = () => {
+//     console.log("Arrow Function");
 // }
 </code></pre>
 
+<p>
+  <b>Explanation:</b> Function expression ane arrow function
+hoisted nathi thati, etle error aave chhe.
+</p>
+## Function Examples
 <hr>
-
-<footer>
-  <p>📌 JavaScript Concepts: Pure, Closure, Lexical Scope, IIFE & Hoisting</p>
-</footer>
-
-<hr>
-<h1>Function Examples</h1>
 <div>
   <h1> Example 1: </h1>
   <p>What's the difference between function declaration and function expression in terms of hoisting?</p>
@@ -1941,10 +2002,10 @@ function f() {
   <h1> Example 12: </h1>
   <p>Can you assign a function to a variable and call it?</p>
   <pre><code>
-let a1 = function () {
+let a = function () {
   console.log("Hello");
 };
-a1();
+a();
   </code></pre>
   <p><b>Ans:</b> Yes.</p>
   <p><b>Why:</b> Functions can be stored in variables.</p>
@@ -2110,10 +2171,17 @@ function temp_var() {
   </code></pre>
   <p><b>Ans:</b> Hello.</p>
   <p><b>Why:</b> Function declarations are hoisted.</p>
+
 </div>
+<h1>JavaScript Arrays – README</h1>
+
+<p>
+JavaScript <strong>Array</strong> ek aevu data structure chhe je ek saathe multiple values store kari shake.
+</p>
+
 <hr>
 
-<h1>JavaScript Arrays</h1>
+<h2>What is an Array?</h2>
 
 <p>Array example:</p>
 
@@ -2290,197 +2358,998 @@ b.sort(function(a, b) {
 });
 </pre>
 </pre>
-
-<h2>Array example</h2>
-<hr>
-
 <div>
-  <h3>Q1. push()</h3>
-  <p><b>Task:</b> Add 'Buy milk'</p>
+  <h1>Example 1: push()</h1>
+  <p>Add a new task <b>'Buy milk'</b> to the tasks array.</p>
   <pre><code>
+let tasks = ['Wake up', 'Brush teeth'];
 tasks.push('Buy milk');
   </code></pre>
-  <p><b>Answer:</b> ['Wake up', 'Brush teeth', 'Buy milk']</p>
-  <p><b>Why:</b> <code>push()</code> array ના end માં value add કરે છે.</p>
+  <p><b>Ans:</b> <code>['Wake up', 'Brush teeth', 'Buy milk']</code></p>
+  <p><b>Why:</b> <code>push()</code> adds an element to the end of the array.</p>
 </div>
 
 <div>
-  <h3>Q2. pop()</h3>
+  <h1>Example 2: pop()</h1>
+  <p>Remove the last notification.</p>
   <pre><code>
+let notifications = ['Email', 'Message', 'Reminder'];
 notifications.pop();
   </code></pre>
-  <p><b>Answer:</b> ['Email', 'Message']</p>
-  <p><b>Why:</b> <code>pop()</code> last element remove કરે છે.</p>
+  <p><b>Ans:</b> <code>['Email', 'Message']</code></p>
+  <p><b>Why:</b> <code>pop()</code> removes the last element.</p>
 </div>
 
 <div>
-  <h3>Q3. shift()</h3>
+  <h1>Example 3: shift()</h1>
+  <p>Remove the first customer.</p>
   <pre><code>
+let customers = ['Customer1', 'Customer2', 'Customer3'];
 customers.shift();
   </code></pre>
-  <p><b>Answer:</b> ['Customer2', 'Customer3']</p>
-  <p><b>Why:</b> <code>shift()</code> first element remove કરે છે.</p>
+  <p><b>Ans:</b> <code>['Customer2', 'Customer3']</code></p>
+  <p><b>Why:</b> <code>shift()</code> removes the first element.</p>
 </div>
 
 <div>
-  <h3>Q4. unshift()</h3>
+  <h1>Example 4: unshift()</h1>
+  <p>Add a song at the beginning.</p>
   <pre><code>
+let playlist = ['Song B', 'Song C'];
 playlist.unshift('Song A');
   </code></pre>
-  <p><b>Answer:</b> ['Song A', 'Song B', 'Song C']</p>
-  <p><b>Why:</b> <code>unshift()</code> start માં value add કરે છે.</p>
+  <p><b>Ans:</b> <code>['Song A', 'Song B', 'Song C']</code></p>
+  <p><b>Why:</b> <code>unshift()</code> adds elements at the start.</p>
 </div>
 
 <div>
-  <h3>Q5. splice()</h3>
+  <h1>Example 5: splice()</h1>
+  <p>Remove 'Alex' and add 'John' and 'Sara'.</p>
   <pre><code>
+let students = ['Mike', 'Alex', 'Emma', 'Sophia'];
 students.splice(1, 1, 'John', 'Sara');
   </code></pre>
-  <p><b>Answer:</b> ['Mike', 'John', 'Sara', 'Emma', 'Sophia']</p>
-  <p><b>Why:</b> <code>splice()</code> remove + add both કરી શકે છે.</p>
+  <p><b>Ans:</b> <code>['Mike', 'John', 'Sara', 'Emma', 'Sophia']</code></p>
+  <p><b>Why:</b> <code>splice()</code> removes and inserts elements.</p>
 </div>
 
 <div>
-  <h3>Q6. splice()</h3>
+  <h1>Example 6: splice()</h1>
+  <p>Remove 2 items starting from index 1.</p>
   <pre><code>
+let menu = ['Burger', 'Pizza', 'Pasta', 'Salad'];
 menu.splice(1, 2);
   </code></pre>
-  <p><b>Answer:</b> ['Burger', 'Salad']</p>
-  <p><b>Why:</b> index 1 થી 2 items remove થયા.</p>
+  <p><b>Ans:</b> <code>['Burger', 'Salad']</code></p>
+  <p><b>Why:</b> It removes items starting from given index.</p>
 </div>
 
 <div>
-  <h3>Q7. slice()</h3>
+  <h1>Example 7: slice()</h1>
+  <p>Create a new array with weekend days.</p>
   <pre><code>
-days.slice(5);
+let days = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
+let weekend = days.slice(5);
   </code></pre>
-  <p><b>Answer:</b> ['Saturday', 'Sunday']</p>
-  <p><b>Why:</b> <code>slice()</code> new array બનાવે છે.</p>
+  <p><b>Ans:</b> <code>['Saturday', 'Sunday']</code></p>
+  <p><b>Why:</b> <code>slice()</code> does not modify original array.</p>
 </div>
 
 <div>
-  <h3>Q8. reverse()</h3>
+  <h1>Example 8: reverse()</h1>
+  <p>Reverse game levels.</p>
   <pre><code>
+let levels = ['Easy', 'Medium', 'Hard'];
 levels.reverse();
   </code></pre>
-  <p><b>Answer:</b> ['Hard', 'Medium', 'Easy']</p>
-  <p><b>Why:</b> Array order reverse થાય છે.</p>
+  <p><b>Ans:</b> <code>['Hard', 'Medium', 'Easy']</code></p>
+  <p><b>Why:</b> <code>reverse()</code> reverses array in place.</p>
 </div>
 
 <div>
-  <h3>Q9. sort()</h3>
+  <h1>Example 9: sort()</h1>
+  <p>Sort scores in ascending order.</p>
   <pre><code>
-scores.sort((a,b) => a-b);
+let scores = [45, 12, 78, 34, 89];
+scores.sort((a, b) => a - b);
   </code></pre>
-  <p><b>Answer:</b> [12, 34, 45, 78, 89]</p>
-  <p><b>Why:</b> Comparator વગર numbers wrong sort થાય.</p>
+  <p><b>Ans:</b> <code>[12, 34, 45, 78, 89]</code></p>
+  <p><b>Why:</b> Compare function ensures numeric sorting.</p>
 </div>
 
 <div>
-  <h3>Q10. sort() numbers</h3>
+  <h1>Example 10: sort() with numbers</h1>
   <pre><code>
-prices.sort((a,b) => a-b);
+let prices = [199, 49, 999, 299, 149];
+prices.sort((a, b) => a - b);
   </code></pre>
-  <p><b>Answer:</b> [49, 149, 199, 299, 999]</p>
+  <p><b>Ans:</b> <code>[49, 149, 199, 299, 999]</code></p>
 </div>
 
 <div>
-  <h3>Q11. slice() vs splice()</h3>
+  <h1>Example 11: slice() vs splice()</h1>
   <pre><code>
-products.slice(0, 3);
+let products = ['Laptop','Phone','Tablet','Monitor','Keyboard'];
+let firstThree = products.slice(0, 3);
   </code></pre>
-  <p><b>Answer:</b> ['Laptop', 'Phone', 'Tablet']</p>
-  <p><b>Why:</b> Original array change થતો નથી.</p>
+  <p><b>Ans:</b> <code>['Laptop','Phone','Tablet']</code></p>
+  <p><b>Why:</b> <code>slice()</code> keeps original array unchanged.</p>
 </div>
 
 <div>
-  <h3>Q12. splice() complex</h3>
+  <h1>Example 12: splice() complex</h1>
   <pre><code>
+let colors = ['Red', 'Green', 'Blue', 'Yellow'];
 colors.splice(2, 1, 'Purple', 'Orange');
   </code></pre>
-  <p><b>Answer:</b> ['Red','Green','Purple','Orange','Yellow']</p>
+  <p><b>Ans:</b> <code>['Red','Green','Purple','Orange','Yellow']</code></p>
 </div>
 
 <div>
-  <h3>Q13. reverse() + push()</h3>
+  <h1>Example 13: reverse() + push()</h1>
   <pre><code>
+let steps = ['Step 1', 'Step 2', 'Step 3'];
 steps.reverse();
 steps.push('Final Step');
   </code></pre>
-  <p><b>Answer:</b> ['Step 3','Step 2','Step 1','Final Step']</p>
+  <p><b>Ans:</b> <code>['Step 3','Step 2','Step 1','Final Step']</code></p>
 </div>
 
 <div>
-  <h3>Q14. sort() ignore case</h3>
+  <h1>Example 14: sort() strings</h1>
   <pre><code>
-names.sort((a,b)=>a.toLowerCase().localeCompare(b.toLowerCase()));
+let names = ['alice','Bob','charlie','David'];
+names.sort((a,b) => a.toLowerCase().localeCompare(b.toLowerCase()));
   </code></pre>
-  <p><b>Answer:</b> ['alice','Bob','charlie','David']</p>
+  <p><b>Ans:</b> <code>['alice','Bob','charlie','David']</code></p>
 </div>
 
 <div>
-  <h3>Q15. Combination</h3>
+  <h1>Example 15: Combination</h1>
   <pre><code>
+let movies = ['Avatar', 'Titanic', 'Gladiator'];
 movies.push('Inception');
 movies.shift();
 movies.sort();
   </code></pre>
-  <p><b>Answer:</b> ['Gladiator','Inception','Titanic']</p>
+  <p><b>Ans:</b> <code>['Gladiator','Inception','Titanic']</code></p>
 </div>
 
 <div>
-  <h3>Q16. splice() return value</h3>
-  <p><b>Answer:</b> Removed elements return થાય છે.</p>
+  <h1>Example 16: splice() return value</h1>
+  <p><b>Ans:</b> Returns an array of removed elements.</p>
 </div>
 
 <div>
-  <h3>Q17. slice() immutability</h3>
-  <p><b>Answer:</b> Original array change થતો નથી.</p>
+  <h1>Example 17: slice() immutability</h1>
+  <p><b>Ans:</b> Original array does NOT change.</p>
 </div>
 
 <div>
-  <h3>Q18. sort() unexpected</h3>
-  <p><b>Answer:</b> Default sort strings પ્રમાણે compare કરે છે.</p>
+  <h1>Example 18: sort() issue</h1>
+  <p><b>Ans:</b> Numbers are sorted as strings by default.</p>
 </div>
 
 <div>
-  <h3>Q19. reverse() mutation</h3>
-  <p><b>Answer:</b> Same array reference modify થાય છે.</p>
+  <h1>Example 19: reverse() mutation</h1>
+  <p><b>Ans:</b> Both variables point to the same reversed array.</p>
 </div>
 
 <div>
-  <h3>Q20. push() vs unshift()</h3>
-  <p><b>Answer:</b> <code>unshift()</code> expensive છે કારણ કે index shift થાય છે.</p>
+  <h1>Example 20: push() vs unshift()</h1>
+  <p><b>Ans:</b> <code>unshift()</code> is more expensive because it reindexes elements.</p>
 </div>
 
 <div>
-  <h3>Q21. splice() deleteCount = 0</h3>
-  <p><b>Answer:</b> No removal, only insertion.</p>
+  <h1>Example 21: splice() deleteCount 0</h1>
+  <p><b>Ans:</b> No element removed, only insertion happens.</p>
 </div>
 
 <div>
-  <h3>Q22. sort() strings</h3>
-  <p><b>Answer:</b> ['1','10','2']</p>
+  <h1>Example 22: sort() strings</h1>
+  <p><b>Ans:</b> <code>['1','10','2']</code></p>
 </div>
 
 <div>
-  <h3>Q23. slice() negative index</h3>
-  <p><b>Answer:</b> [300, 400]</p>
+  <h1>Example 23: slice() negative index</h1>
+  <p><b>Ans:</b> <code>[300, 400]</code></p>
 </div>
 
 <div>
-  <h3>Q24. splice vs slice</h3>
-  <ul>
-    <li>a) Update original → <code>splice()</code></li>
-    <li>b) Keep unchanged → <code>slice()</code></li>
-  </ul>
+  <h1>Example 24: splice vs slice</h1>
+  <p><b>a)</b> Use <code>splice()</code></p>
+  <p><b>b)</b> Use <code>slice()</code></p>
 </div>
 
 <div>
-  <h3>Q25. Chained methods</h3>
+  <h1>Example 25: Chained methods</h1>
   <pre><code>
+let arr2 = [1, 2, 3];
 arr2.push(arr2.shift());
   </code></pre>
-  <p><b>Answer:</b> [2, 3, 1]</p>
-  <p><b>Why:</b> First element end માં push થયો.</p>
+  <p><b>Ans:</b> <code>[2, 3, 1]</code></p>
 </div>
+
+<hr><hr>
+<h1>JavaScript Array Methods Practice</h1>
+
+<p>
+Aa README file ma JavaScript na important array methods
+<b>sort</b>, <b>forEach</b>, ane <b>map</b>
+real-life examples sathe samjhavya chhe.
+</p>
+
+<hr>
+
+<h2>1. sort()</h2>
+<p>
+Array ne ascending order ma sort karva mate <b>sort()</b> method use thay chhe.
+</p>
+
+<pre><code>
+let arr2 = [11,22,33,30];
+let sort_var = arr2.sort((a,b) => a-b);
+
+let arr3 = ['b','h','e','s'];
+</code></pre>
+
+<hr>
+
+<h2>2. forEach()</h2>
+<p>
+forEach loop array ni darek value mate run thay chhe.
+Aa method koi new array return karto nathi.
+</p>
+
+<pre><code>
+let i9 = ["mansi","riddhi","jinal","nidhi"];
+
+i9.forEach(val => {
+  let new_val = "my name is " + val;
+  console.log(new_val);
+});
+</code></pre>
+
+<hr>
+
+<h2>3. map()</h2>
+<p>
+map() method tyare use thay chhe jyare
+<b>ek new array create karvo hoy</b>.
+forEach jevu j chhe pan map new array return kare chhe.
+</p>
+
+<pre><code>
+let data = [10,20,30,45];
+
+let temp_data = data.map(val => {
+  if (val > 20) {
+    return val;
+  }
+});
+</code></pre>
+
+<p>
+<b>Use case:</b>  
+Specific data ne new array ma store karva (jem ke electronics products).
+</p>
+
+<hr>
+
+<h2>map() – Real Life Examples</h2>
+
+<h3>1. Double daily steps count</h3>
+<pre><code>
+const steps = [1000, 2000, 3000];
+function doubleSteps(step) {
+  return step * 2;
+}
+const newSteps = steps.map(doubleSteps);
+console.log(newSteps);
+</code></pre>
+
+<h3>2. Convert minutes to seconds</h3>
+<pre><code>
+const minutes = [1, 5, 10];
+const seconds = minutes.map(min => min * 60);
+console.log(seconds);
+</code></pre>
+
+<h3>3. Add ₹50 delivery charge</h3>
+<pre><code>
+const prices1 = [200, 350, 500];
+const finalPrices = prices1.map(price => price + 50);
+console.log(finalPrices);
+</code></pre>
+
+<h3>4. Convert exam marks to Pass / Fail</h3>
+<pre><code>
+const marks = [35, 72, 88, 40];
+function getGrade(mark) {
+  return mark >= 40 ? 'Pass' : 'Fail';
+}
+const grades = marks.map(getGrade);
+console.log(grades);
+</code></pre>
+
+<h3>5. Capitalize names</h3>
+<pre><code>
+const names = ['rahul', 'neha', 'amit'];
+const formattedNames = names.map(
+  name => name[0].toUpperCase() + name.slice(1)
+);
+console.log(formattedNames);
+</code></pre>
+
+<h3>6. Apply 10% discount</h3>
+<pre><code>
+const prices = [500, 1000, 1500];
+function applyDiscount(price) {
+  return price - price * 0.10;
+}
+const discounted = prices.map(applyDiscount);
+console.log(discounted);
+</code></pre>
+
+<h3>7. Bonus points based on score</h3>
+<pre><code>
+const scores = [45, 60, 85];
+const finalScores = scores.map(score => {
+  if (score >= 80) return score + 20;
+  if (score >= 50) return score + 10;
+  return score;
+});
+console.log(finalScores);
+</code></pre>
+
+<h3>8. Celsius to Fahrenheit</h3>
+<pre><code>
+const celsius = [0, 20, 30];
+function toFahrenheit(temp) {
+  return (temp * 9/5) + 32;
+}
+const fahrenheit = celsius.map(toFahrenheit);
+console.log(fahrenheit);
+</code></pre>
+
+<h3>9. Generate table of numbers</h3>
+<pre><code>
+const numbers = [1, 2, 3, 4];
+const tableOfTwo = numbers.map(num => num * 2);
+console.log(tableOfTwo);
+</code></pre>
+
+<h3>10. Balance message formatting</h3>
+<pre><code>
+const balances = [500, 1200, 300];
+const messages = balances.map(
+  balance => `Your balance is ₹${balance}`
+);
+console.log(messages);
+</code></pre>
+
+<hr>
+<h1>JavaScript filter() Method</h1>
+
+<p>
+Aa section ma JavaScript no <b>filter()</b> method
+examples ane real-life use cases sathe explain karyo chhe.
+</p>
+
+<hr>
+
+<h2>filter() shu chhe?</h2>
+
+<p>
+<b>filter()</b tyare use karvu jyare
+<b>condition based ek new array create karvo hoy</b>.
+</p>
+
+<ul>
+  <li>Condition <b>true</b> hoy → value new array ma add thase</li>
+  <li>Condition <b>false</b> hoy → value add nahi thay</li>
+</ul>
+
+<hr>
+
+<h2>Basic Example – Expensive Laptops</h2>
+
+<pre><code>
+let leptops_price = [15000,20000,30000,65000,99000,45000];
+
+let expensive_laptops = leptops_price.filter(price => {
+  if (price > 30000) return true;
+});
+</code></pre>
+
+<p>
+30000 thi vadhare price hase te value
+new array ma store thase.
+</p>
+
+<hr>
+
+<h2>filter() – Real Life Examples</h2>
+
+<h3>1. Get Even Numbers</h3>
+<p><b>Real life:</b> Even roll numbers find karva</p>
+
+<pre><code>
+const numbers1 = [1, 2, 3, 4, 5, 6];
+const evenNumbers = numbers1.filter(num => num % 2 === 0);
+</code></pre>
+
+<hr>
+
+<h3>2. Filter Adults</h3>
+<p><b>Real life:</b> Only adults ne allow karva</p>
+
+<pre><code>
+const ages = [2, 1, 10, 16, 5];
+function isAdult(age) {
+  return age >= 18;
+}
+const adults = ages.filter(isAdult);
+</code></pre>
+
+<hr>
+
+<h3>3. Remove Empty Inputs</h3>
+<p><b>Real life:</b> User input clean karva</p>
+
+<pre><code>
+const inputs = ['Hello', '', 'World', '', 'JS'];
+const validInputs = inputs.filter(text => text !== '');
+</code></pre>
+
+<hr>
+
+<h3>4. Filter Passing Marks</h3>
+<p><b>Real life:</b> Exam result system</p>
+
+<pre><code>
+const marks1 = [35, 72, 88, 40, 25];
+const passedStudents = marks1.filter(mark => mark >= 40);
+</code></pre>
+
+<hr>
+
+<h3>5. Get Affordable Prices</h3>
+<p><b>Real life:</b> Shopping app price filter</p>
+
+<pre><code>
+const prices5 = [199, 499, 999, 1499, 299];
+const affordable = prices5.filter(price => price <= 500);
+</code></pre>
+
+<hr>
+
+<h3>6. Filter Long Words</h3>
+<p><b>Real life:</b> Search keyword validation</p>
+
+<pre><code>
+const words = ['hi', 'hello', 'javascript', 'ok'];
+function isLongWord(word) {
+  return word.length > 3;
+}
+const longWords = words.filter(isLongWord);
+</code></pre>
+
+<hr>
+
+<h3>7. Filter Positive Transactions</h3>
+<p><b>Real life:</b> Bank credits only</p>
+
+<pre><code>
+const transactions = [200, -100, 500, -50, 300];
+const credits = transactions.filter(amount => amount > 0);
+</code></pre>
+
+<hr>
+
+<h3>8. Filter Scores in Range</h3>
+<p><b>Real life:</b> Score selection</p>
+
+<pre><code>
+const scores9 = [45, 60, 85, 30, 90];
+const selectedScores = scores9.filter(
+  score => score >= 50 && score <= 90
+);
+</code></pre>
+
+<hr>
+
+<h3>9. Filter Shoe Brands</h3>
+<p><b>Real life:</b> Show only selected brands</p>
+
+<pre><code>
+let shhose_brand = ["Skechers","Puma","Adidas","Nike"];
+
+let shhose_brand_type = shhose_brand.filter(type => {
+  if (type === "Puma" || type === "Nike")
+    return true;
+});
+</code></pre>
+
+<hr>
+<p>
+<b>filter()</b method thi tame
+condition based data ne easily
+<b>new array ma store</b> kari sako chho.
+</p>
+<h1>JavaScript reduce() Method</h1>
+
+<p>
+Aa section ma JavaScript no <b>reduce()</b> method
+simple language ma ane real-life examples sathe explain karyo chhe.
+</p>
+
+<hr>
+
+<h2>reduce() shu chhe?</h2>
+
+<p>
+<b>reduce()</b tyare use karvu jyare
+<b>array mathi ek single value calculate</b> karvi hoy.
+</p>
+
+<p>
+Example:
+<ul>
+  <li>Total price</li>
+  <li>Sum of values</li>
+  <li>Maximum / minimum value</li>
+  <li>Count of items</li>
+</ul>
+</p>
+
+<hr>
+
+<h2>Basic Example – Total Price</h2>
+
+<pre><code>
+let totle_price = [15,68,45,58,52,48];
+
+let final_price = totle_price.reduce((a5, val) => {
+  return a5 + val;
+}, 0);
+</code></pre>
+
+<p>
+<b>Explanation:</b>
+</p>
+
+<ul>
+  <li><b>a5</b> → accumulator (previous returned value)</li>
+  <li><b>val</b> → array ni darek value</li>
+  <li><b>0</b> → initial value of accumulator</li>
+</ul>
+
+<hr>
+
+<h2>reduce() – Real Life Examples</h2>
+
+<h3>1. Total Money in Wallet</h3>
+<p><b>Real life:</b> All cash amounts add karva</p>
+
+<pre><code>
+const money = [100, 200, 50];
+const totalMoney = money.reduce((sum, amount) => sum + amount, 0);
+</code></pre>
+
+<hr>
+
+<h3>2. Total Steps Walked in a Week</h3>
+<p><b>Real life:</b> Fitness tracker</p>
+
+<pre><code>
+const steps9 = [3000, 5000, 4000, 6000];
+
+function addSteps(total, step) {
+  return total + step;
+}
+
+const weeklySteps = steps9.reduce(addSteps, 0);
+</code></pre>
+
+<hr>
+
+<h3>3. Total Cart Price</h3>
+<p><b>Real life:</b> Shopping bill</p>
+
+<pre><code>
+const prices9 = [499, 299, 199];
+const totalPrice = prices9.reduce(
+  (total, price) => total + price, 0
+);
+</code></pre>
+
+<hr>
+
+<h3>4. Find Maximum Score</h3>
+<p><b>Real life:</b> Highest exam mark</p>
+
+<pre><code>
+const marks9 = [45, 88, 67, 92];
+
+const highest = marks9.reduce((max, mark) => {
+  return mark > max ? mark : max;
+}, marks9[0]);
+</code></pre>
+
+<hr>
+
+<h3>5. Count Total Characters</h3>
+<p><b>Real life:</b> Text length calculation</p>
+
+<pre><code>
+const words9 = ['Hi', 'Hello', 'JS'];
+
+const totalChars = words9.reduce(
+  (count, word) => count + word.length, 0
+);
+</code></pre>
+
+<hr>
+
+<h3>6. Combine Words into a Sentence</h3>
+<p><b>Real life:</b> Message builder</p>
+
+<pre><code>
+const words8 = ['Learning', 'JavaScript', 'is', 'fun'];
+
+const sentence = words8.reduce(
+  (text, word) => text + ' ' + word
+);
+</code></pre>
+
+<hr>
+
+<h3>7. Count Passed Students</h3>
+<p><b>Real life:</b> Result summary</p>
+
+<pre><code>
+const marks6 = [35, 72, 88, 40, 25];
+
+const passCount = marks6.reduce((count, mark) => {
+  return mark >= 40 ? count + 1 : count;
+}, 0);
+</code></pre>
+
+<hr>
+
+<h3>8. Calculate Final Bank Balance</h3>
+<p><b>Real life:</b> Bank account calculation</p>
+
+<pre><code>
+const transactions8 = [1000, -200, -300, 500];
+
+const finalBalance = transactions8.reduce(
+  (balance, amount) => balance + amount, 0
+);
+</code></pre>
+
+<hr>
+
+<h3>9. Build Comma-Separated String</h3>
+<p><b>Real life:</b> Display values in UI</p>
+
+<pre><code>
+const items = ['Pen', 'Book', 'Pencil'];
+
+const result = items.reduce(
+  (text, item) => text + ', ' + item
+);
+</code></pre>
+<hr>
+<p>
+<b>reduce()</b method powerful chhe ane
+tame ek array mathi
+<b>any type ni single value</b> easily calculate kari sako chho.
+</p>
+
+<h2>Q1. Shopping App – Discounted Total</h2>
+  <p>Keep items costing more than 500, apply 10% discount, and find total:</p>
+  <pre><code>
+const prices12 = [200, 800, 1200, 450, 700];
+const total = prices12
+  .filter(price => price > 500)
+  .map(price => price * 0.9)
+  .reduce((sum, price) => sum + price, 0);
+  </code></pre>
+
+  <h2>Q2. Fitness App – Total Active Minutes</h2>
+  <p>Keep days with &gt;30 minutes, convert to calories, sum total:</p>
+  <pre><code>
+const minutes10 = [20, 45, 60, 15, 90];
+const totalCalories = minutes10
+  .filter(min => min > 30)
+  .map(min => min * 5)
+  .reduce((total, cal) => total + cal, 0);
+  </code></pre>
+
+  <h2>Q3. Exam System – Average of Passed Marks</h2>
+  <p>Keep passing marks (≥40) and calculate average:</p>
+  <pre><code>
+const marks10 = [35, 72, 88, 40, 25, 90];
+const passed = marks10.filter(mark => mark >= 40);
+const average = passed.reduce((sum, mark) => sum + mark, 0) / passed.length;
+  </code></pre>
+
+  <h2>Q4. Salary System – Monthly Payout</h2>
+  <p>Keep wages &gt;500, add 100 bonus, calculate total payout:</p>
+  <pre><code>
+const wages = [300, 800, 450, 1000, 600];
+const totalPayout = wages
+  .filter(wage => wage > 500)
+  .map(wage => wage + 100)
+  .reduce((total, wage) => total + wage, 0);
+  </code></pre>
+
+  <h2>Q5. Online Course – Completion Points</h2>
+  <p>Keep lessons ≥50%, convert to points, sum total:</p>
+  <pre><code>
+const progress = [20, 50, 75, 40, 100];
+const totalPoints = progress
+  .filter(p => p >= 50)
+  .map(p => p * 2)
+  .reduce((sum, p) => sum + p, 0);
+  </code></pre>
+
+  <h2>Q6. Bank Transactions – Final Balance</h2>
+  <p>Keep credits, add 2% interest, calculate total:</p>
+  <pre><code>
+const transactions10 = [1000, -500, 2000, -300, 1500];
+const creditedAmount = transactions10
+  .filter(amount => amount > 0)
+  .map(amount => amount * 1.02)
+  .reduce((total, amount) => total + amount, 0);
+  </code></pre>
+
+  <h2>Q7. Game App – Final Score</h2>
+  <p>Keep scores &gt;50, add 10 bonus points, sum total:</p>
+  <pre><code>
+const scores10 = [30, 60, 90, 45, 80];
+const finalScore = scores10
+  .filter(score => score > 50)
+  .map(score => score + 10)
+  .reduce((sum, score) => sum + score, 0);
+  </code></pre>
+
+  <h2>Q8. E-commerce – Total Taxed Amount</h2>
+  <p>Keep items &gt;1000, add 18% tax, calculate final amount:</p>
+  <pre><code>
+const prices4 = [500, 1200, 3000, 800, 1500];
+const finalAmount = prices4
+  .filter(price => price > 1000)
+  .map(price => price * 1.18)
+  .reduce((sum, price) => sum + price, 0);
+  </code></pre>
+
+  <h2>Q9. Attendance System – Reward Points</h2>
+  <p>Keep days ≥8 hours, convert to points, sum total:</p>
+  <pre><code>
+const hours = [6, 8, 9, 7, 10];
+const totalPoints10 = hours
+  .filter(hour => hour >= 8)
+  .map(hour => hour * 10)
+  .reduce((sum, point) => sum + point, 0);
+  </code></pre>
+
+  <h2>Q10. Interview Brain Teaser </h2>
+  <p>Keep even numbers, square them, sum total:</p>
+  <pre><code>
+const numbers10 = [1, 2, 3, 4, 5, 6];
+const sumOfSquares = numbers10
+  .filter(num => num % 2 === 0)
+  .map(num => num * num)
+  .reduce((sum, num) => sum + num, 0);
+  </code></pre>
+
+<h1>JavaScript Array Methods & Operators</h1>
+
+<p>
+આ README માં JavaScript ના મહત્વના array methods અને operators
+<code>find()</code>, <code>filter()</code>, <code>some()</code>, <code>every()</code>,
+destructuring અને spread operator ને simple examples સાથે સમજાવવામાં આવ્યા છે.
+</p>
+
+<hr/>
+
+<h2>1. Array.find()</h2>
+
+<p>
+<code>find()</code> method array માંથી condition match થતો
+<strong>પહેલો element</strong> return કરે છે.
+</p>
+
+<ul>
+  <li>Callback function નું return value return થતું નથી</li>
+  <li>Array નો actual element return થાય છે</li>
+  <li>First match મળતાં જ loop stop થઈ જાય છે</li>
+</ul>
+
+<pre><code>
+let product = ["laptop","mobile","tablet","desktop","smart watch"];
+
+let find_product = product.find((item) => {
+  if (item === "mobile") {
+    return true;
+  }
+  else if (item === "tablet") {
+    return true;
+  }
+  else {
+    return false;
+  }
+});
+</code></pre>
+
+<p><strong>Use case:</strong> Specific product name based search</p>
+
+<hr/>
+
+<h2>2. find() vs filter()</h2>
+
+<p>
+Shopping mall security example:
+</p>
+
+<pre><code>
+let people = ["john","sara","mike","anna","david","sara"];
+
+// find → first match only
+let person = people.find(name => name === "sara");
+console.log(person);
+
+// filter → all matches
+let allSara = people.filter(name => name === "sara");
+console.log(allSara);
+</code></pre>
+
+<ul>
+  <li><strong>find()</strong> → First "sara" જ return કરે</li>
+  <li><strong>filter()</strong> → બધી "sara" ની list return કરે</li>
+</ul>
+
+<hr/>
+
+<h2>3. Array.some()</h2>
+
+<p>
+<code>some()</code> check કરે છે કે array માં
+<strong>ઓછામાં ઓછું એક item</strong> condition satisfy કરે છે કે નહીં.
+</p>
+
+<ul>
+  <li>Output → <code>true</code> અથવા <code>false</code></li>
+  <li>Condition true થતા જ loop stop</li>
+</ul>
+
+<pre><code>
+let marks = [10, 20, 35, 90];
+
+let result = marks.some(val => val > 85);
+console.log(result);
+</code></pre>
+
+<p><strong>Use case:</strong> Cart માં કોઈ product out of stock છે કે નહીં</p>
+
+<hr/>
+
+<h2>4. Array.every()</h2>
+
+<p>
+<code>every()</code> check કરે છે કે
+<strong>બધા elements</strong> condition satisfy કરે છે કે નહીં.
+</p>
+
+<pre><code>
+let numbers = [20, 30, 90, 45];
+
+let output = numbers.every(val => val < 40);
+console.log(output);
+</code></pre>
+
+<ul>
+  <li>બધા match → true</li>
+  <li>એક પણ fail → false</li>
+</ul>
+
+<p><strong>Use case:</strong> બધા students pass છે કે નહીં</p>
+
+<hr/>
+
+<h2>5. some(), find(), filter(), every() Comparison</h2>
+
+<pre><code>
+let products = ["tablet","mobile","laptop","mobile"];
+</code></pre>
+
+<table border="1">
+  <tr>
+    <th>Method</th>
+    <th>Condition</th>
+    <th>Output</th>
+  </tr>
+  <tr>
+    <td>some()</td>
+    <td>item === "mobile"</td>
+    <td>true</td>
+  </tr>
+  <tr>
+    <td>find()</td>
+    <td>item === "mobile"</td>
+    <td>"mobile"</td>
+  </tr>
+  <tr>
+    <td>filter()</td>
+    <td>item === "mobile"</td>
+    <td>["mobile","mobile"]</td>
+  </tr>
+  <tr>
+    <td>every()</td>
+    <td>item === "mobile"</td>
+    <td>false</td>
+  </tr>
+</table>
+
+<hr/>
+
+<h2>6. Array Destructuring</h2>
+
+<p>
+Destructuring નો ઉપયોગ કરીને array values ને
+direct variables માં store કરી શકાય છે.
+</p>
+
+<pre><code>
+let arr = [1,2,3,4,5];
+let [j, , k] = arr;
+console.log(k);
+</code></pre>
+
+<h3>User Data Example</h3>
+
+<pre><code>
+let user_data = ["test","test@gmail.com","male","surat"];
+
+let [name, email, gender, city] = user_data;
+
+console.log(name);
+console.log(email);
+console.log(gender);
+console.log(city);
+</code></pre>
+
+<hr/>
+
+<h2>7. Spread Operator (...)</h2>
+
+<p>
+Spread operator array અથવા object ની
+<strong>copy બનાવે છે</strong>.
+</p>
+
+<pre><code>
+let arr1 = [1,2,3,4,5];
+let arr2 = [...arr1];
+</code></pre>
+
+<h3>Merge Arrays</h3>
+
+<pre><code>
+let temp_arr1 = [1,2,3];
+let temp_arr2 = [3,4,5];
+
+let mix_arr = [...temp_arr1, ...temp_arr2];
+</code></pre>
+
+<ul>
+  <li><code>...</code> function માં → rest operator</li>
+  <li><code>...</code> array/object માં → spread operator</li>
+</ul>
+
+<hr/>
+
+<p><strong>Happy Learning JavaScript 🚀</strong></p>
